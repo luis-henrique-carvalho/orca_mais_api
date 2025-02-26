@@ -50,3 +50,17 @@ gem "devise", "~> 4.9"
 gem "devise-jwt", "~> 0.12.1"
 gem "pagy", "~> 9.3"
 gem "blueprinter"
+
+gem "rspec-rails", "~> 7.1", groups: [ :development, :test ]
+
+gem "simplecov", "~> 0.22.0", group: :test, require: false
+
+gem "simplecov_json_formatter", "~> 0.1.4", group: :test, require: false
+
+gem "shoulda-matchers", "~> 6.4", group: :test
+
+gem "factory_bot_rails", "~> 6.4", groups: [ :development, :test ]
+
+gem "faker", "~> 3.5", :groups => [:development, :test]
+
+gem "database_cleaner-active_record", "~> 2.2", :group => :test
