@@ -19,7 +19,7 @@ gem "dotenv-rails", groups: [ :development, :test ]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
-
+gem "rack-cors"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -45,3 +45,8 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+gem "devise", "~> 4.9"
+gem "devise-jwt", "~> 0.12.1"
+gem "pagy", "~> 9.3"
+gem "blueprinter"
