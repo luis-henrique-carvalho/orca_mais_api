@@ -291,7 +291,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.72.2)
+    rubocop (1.73.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -318,13 +318,12 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.72.1, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails-omakase (1.1.0)
-      rubocop (>= 1.72)
-      rubocop-performance (>= 1.24)
-      rubocop-rails (>= 2.30)
     rubocop-rspec (3.5.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
+    rubocop-rspec_rails (2.30.0)
+      rubocop (~> 1.61)
+      rubocop-rspec (~> 3, >= 3.0.1)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     shoulda-matchers (6.4.0)
@@ -422,8 +421,8 @@ DEPENDENCIES
   rubocop-factory_bot
   rubocop-performance
   rubocop-rails
-  rubocop-rails-omakase
   rubocop-rspec
+  rubocop-rspec_rails (~> 2.30)
   shoulda-matchers (~> 6.4)
   simplecov (~> 0.22.0)
   simplecov_json_formatter (~> 0.1.4)

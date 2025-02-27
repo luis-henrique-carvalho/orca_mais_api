@@ -41,3 +41,5 @@ group :test do
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'simplecov_json_formatter', '~> 0.1.4', require: false
 end
+
+gem 'rubocop-rspec_rails', '~> 2.30'

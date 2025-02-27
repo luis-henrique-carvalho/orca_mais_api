@@ -1,4 +1,13 @@
-require:
+plugins:
   - rubocop-rails
   - rubocop-rspec
+
+require:
   - rubocop-factory_bot
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false

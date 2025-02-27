@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
+
 module Auth
   class RegistrationsController < Devise::RegistrationsController
     include RackSessionsFix
@@ -26,3 +28,5 @@ module Auth
     end
   end
 end
+
+# rubocop:enable Metrics/MethodLength
