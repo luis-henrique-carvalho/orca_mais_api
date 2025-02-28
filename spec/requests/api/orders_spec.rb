@@ -21,7 +21,6 @@ RSpec.describe 'api/orders', type: :request do
         schema '$ref': '#/components/schemas/orders/responses/index'
 
         it 'returns the correct data length' do
-          debugger
           expect(response_body['data'].size).to eq(3)
         end
 
