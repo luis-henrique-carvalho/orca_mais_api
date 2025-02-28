@@ -2,8 +2,6 @@
 
 # rubocop:disable Lint/UnusedMethodArgument
 class ApplicationOperation
-  attr_accessor :failed_step
-
   Response = Struct.new(:success?, :payload, :error, :status, :operation_class) do
     def failure?
       !success?
@@ -25,6 +23,7 @@ class ApplicationOperation
 
   def self.call(params:, options: {})
     service = new(params)
+    service.call(params)
   rescue ActiveRecord::RecordNotFound => e
     service.failure(e, :not_found)
   rescue ForbiddenOperationException => e
@@ -35,6 +34,7 @@ class ApplicationOperation
 
   def self.call!(params:, options: {})
     service = new(params)
+    service.call(params)
   rescue OperationInterruptionException => e
     service.failure(e)
   end

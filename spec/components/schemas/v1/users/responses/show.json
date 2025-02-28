@@ -1,0 +1,12 @@
+{
+  "title": "Show User Response",
+  "type": "object",
+  "properties": {
+    "data": {
+      "$ref": "#/components/schemas/v1/users/_private"
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

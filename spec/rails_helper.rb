@@ -91,6 +91,7 @@ RSpec.configure do |config|
     end
   end
 
+  config.include ExpectResponseHelper, type: :request
   config.include ApiHelper, type: :request
   config.include ActiveSupport::Testing::TimeHelpers
   config.include Request::JsonHelpers, type: :request

@@ -5,9 +5,10 @@ module Api
   module V1
     class UsersController < ApiController
       before_action :set_user, only: %i[show update]
+      before_action :authenticate_user!, only: %i[show update]
 
       def show
-        result = ::Users::Show.call(params: @client_user)
+        result = ::Users::Show.call(params: @user)
 
         if result.success?
           render json: ::UserSerializer.render(result.payload, view: :private, root: :data)

@@ -1,0 +1,21 @@
+{
+  "title": "User Private",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "nullable": true
+    },
+    "cpf": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

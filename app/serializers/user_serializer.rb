@@ -35,4 +35,8 @@ class UserSerializer < ApplicationSerializer
   identifier :id
 
   fields :id, :email, :full_name
+
+  view :private do
+    fields :cpf
+  end
 end

@@ -5,6 +5,8 @@ module Api
     include Pagination
     include ErrorHandling
 
+    rescue_from ActiveRecord::RecordNotFound, with: ->(e) { render_errors(e, status: :not_found) }
+
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     respond_to :json

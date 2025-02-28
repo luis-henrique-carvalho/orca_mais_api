@@ -1,0 +1,25 @@
+{
+  "title": "Update User Request",
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string",
+          "nullable": true
+        },
+        "email": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "required": [
+        "user"
+      ]
+    }
+  }
+}
