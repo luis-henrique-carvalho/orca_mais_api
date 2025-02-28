@@ -8,9 +8,9 @@ gem 'devise', '~> 4.9'
 gem 'devise-jwt', '~> 0.12.1'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'kamal', require: false
+gem 'kaminari', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
-gem 'kaminari', '~> 1.2'
 gem 'rack-cors'
 gem 'rails', '~> 8.0.1'
 gem 'solid_cable'

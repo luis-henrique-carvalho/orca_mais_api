@@ -15,6 +15,6 @@ FactoryBot.define do
   factory :order do
     kind  { Faker::Name.name }
     price { Faker::Number.decimal(l_digits: 2) }
-    customer  { Faker::Name.name }
+    customer { Faker::Name.name }
   end
 end

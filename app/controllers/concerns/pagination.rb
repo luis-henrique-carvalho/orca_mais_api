@@ -18,7 +18,7 @@ module Pagination
   def paginated_data(data, serializer, serializer_config)
     serializer_method = serializer_config.delete(:sti) ? 'render_sti' : 'render_as_hash'
 
-    serializer.send(serializer_method, data.page(page).per(page_size), serializer_config)
+    serializer.send(serializer_method, data.paginate(page, page_size, order), serializer_config)
   end
 
   private
@@ -28,7 +28,7 @@ module Pagination
   end
 
   def default_page_size
-    10
+    50
   end
 
   def order
