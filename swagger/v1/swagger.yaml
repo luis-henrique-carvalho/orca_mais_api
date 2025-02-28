@@ -1,0 +1,100 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/orders":
+    get:
+      summary: List all orders
+      tags:
+      - Orders
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    meta:
+                      current_page: 1
+                      total_pages: 1
+                      current_page_size: 10
+                      total: 3
+                    data:
+                    - id: 4
+                      customer: João Vieira
+                      kind: Margarida Moreno
+                      price: '49.07'
+                    - id: 5
+                      customer: Sra. João Lobos
+                      kind: Fabiano Casqueira
+                      price: '78.42'
+                    - id: 6
+                      customer: Sra. Nicolas Simões
+                      kind: Sílvia Quarteira
+                      price: '50.41'
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+  schemas:
+    common:
+      pagination_meta:
+        title: Pagination Meta
+        type: object
+        properties:
+          current_page:
+            type: integer
+          total_pages:
+            type: integer
+          current_page_size:
+            type: integer
+          total:
+            type: integer
+        required:
+        - current_page
+        - total_pages
+        - current_page_size
+        - total
+    orders:
+      _common:
+        title: Order
+        type: object
+        properties:
+          id:
+            type: integer
+          customer:
+            type: string
+          price:
+            type: string
+          kind:
+            type: string
+      requests:
+        create:
+          title: Create Order Request
+          type: object
+          properties:
+            customer:
+              type: string
+            price:
+              type: number
+            kind:
+              type: string
+      responses:
+        index:
+          title: Index Order Response
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                "$ref": "#/components/schemas/orders/_common"
+            meta:
+              "$ref": "#/components/schemas/common/pagination_meta"
+servers:
+- url: http://{defaultHost}
