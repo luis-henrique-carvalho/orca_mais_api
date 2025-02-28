@@ -1,13 +1,136 @@
-plugins:
-  - rubocop-rails
-  - rubocop-rspec
-
+inherit_mode:
+  merge:
+    - Exclude
 require:
-  - rubocop-factory_bot
-  - rubocop-rspec_rails
+  - "rubocop-rails"
+  - "rubocop-rspec"
+  - "rubocop-factory_bot"
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "bin/*"
+    - "db/migrate/*"
 
+Layout/LineLength:
+  AllowedPatterns: ['^(\s*#)']
+  Exclude:
+    - "config/**/*"
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/jobs/**/*"
+Layout/HashAlignment:
+  Exclude:
+    - "lib/**/*"
+Lint/ShadowingOuterLocalVariable:
+  Exclude:
+    - "lib/**/*"
+Metrics/BlockLength:
+  Exclude:
+    - "app/admin/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/models/funnel/private_company_lead.rb"
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/jobs/**/*"
+    - "app/models/concerns/auto_strip_attributes.rb"
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/jobs/**/*"
+    - "app/models/concerns/auto_strip_attributes.rb"
+Naming/PredicateName:
+  Exclude:
+    - "lib/**/*"
+Naming/VariableName:
+  Exclude:
+    - "spec/**/*"
+Security/Open:
+  Exclude:
+    - "lib/**/*"
+Style/ClassAndModuleChildren:
+  Exclude:
+    - "spec/**/*"
+    - "app/models/client/card/*"
 Style/Documentation:
   Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/IdenticalConditionalBranches:
+  Exclude:
+    - "app/**/*"
+Rails/SkipsModelValidations:
+  Exclude:
+    - "**/*"
+Metrics/AbcSize:
+  Max: 18
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/jobs/**/*"
+    - "app/models/concerns/auto_strip_attributes.rb"
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+    - "spec/**/*"
+    - "app/jobs/**/*"
+    - "app/operations/admin/funnel/private_company_leads/update.rb"
+Metrics/ClassLength:
+  Exclude:
+    - "app/jobs/**/*"
+    - "app/operations/**/*"
+Lint/DuplicateBranch:
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - "app/**/*"
+Rails/I18nLocaleTexts:
+  Exclude:
+    - "app/**/*"
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/seeds/**/*"
+RSpec/ExampleLength:
+  Max: 15
+RSpec/NestedGroups:
+  Max: 10
+RSpec/MetadataStyle:
+  Exclude:
+    - "spec/**/*"
+RSpec/PendingWithoutReason:
+  Enabled: false
+RSpec/VariableName:
+  AllowedPatterns:
+    - "^Authorization$"
+    - '^q\[[a-z_]*\]$'
+    - "POS-MACHINE-ID"
+    - "SICOF-API-KEY"
+  Include:
+    - "spec/**/*"
+RSpec/MultipleMemoizedHelpers:
+  Max: 20
+RSpec/AnyInstance:
+  Exclude:
+    - "spec/**/*"
+Style/ClassVars:
+  Exclude:
+    - "app/models/concerns/funnel/has_reviews.rb"
+inherit_gem:
+  rswag-specs: .rubocop_rspec_alias_config.yml

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+# rubocop:disable Metrics/AbcSize
 
 module Auth
   class SessionsController < Devise::SessionsController
@@ -44,4 +44,4 @@ module Auth
   end
 end
 
-# rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+# rubocop:enable Metrics/AbcSize

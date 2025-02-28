@@ -2,16 +2,17 @@
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'pundit/rspec'
-require 'devise/jwt/test_helpers'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'devise/jwt/test_helpers'
 require 'simplecov'
 require 'simplecov_json_formatter'
+require 'swagger_helper'
+require 'support/api_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  SimpleCov::Formatter::JSONFormatter,
@@ -49,6 +50,7 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
@@ -89,8 +91,12 @@ RSpec.configure do |config|
     end
   end
 
-  config.include FactoryBot::Syntax::Methods
   config.include ApiHelper, type: :request
+  config.include ActiveSupport::Testing::TimeHelpers
   config.include Request::JsonHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include FactoryBot::Syntax::Methods
+  config.extend SwaggerDocHelper, type: :request
+
+  Faker::Config.locale = 'pt-BR'
 end

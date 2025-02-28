@@ -1,0 +1,15 @@
+{
+  "title": "Create Order Request",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "kind": {
+      "type": "string"
+    }
+  }
+}

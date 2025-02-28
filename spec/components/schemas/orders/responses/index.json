@@ -1,0 +1,15 @@
+{
+  "title": "Index Order Response",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/orders/_common"
+      }
+    },
+    "meta": {
+      "$ref": "#/components/schemas/common/pagination_meta"
+    }
+  }
+}

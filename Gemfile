@@ -8,9 +8,9 @@ gem 'devise', '~> 4.9'
 gem 'devise-jwt', '~> 0.12.1'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'kamal', require: false
-gem 'pagy', '~> 9.3'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
+gem 'kaminari', '~> 1.2'
 gem 'rack-cors'
 gem 'rails', '~> 8.0.1'
 gem 'solid_cable'
@@ -19,6 +19,9 @@ gem 'solid_queue'
 gem 'thruster', require: false
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
+gem 'rswag-api'
+gem 'rswag-ui'
+
 group :development, :test do
   gem 'annotaterb'
   gem 'brakeman', require: false
@@ -26,6 +29,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.5'
   gem 'rspec-rails', '~> 7.1'
+  gem 'rswag-specs'
 
   gem 'rubocop', require: false
   gem 'rubocop-capybara', require: false

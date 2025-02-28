@@ -1,0 +1,24 @@
+{
+  "title": "Pagination Meta",
+  "type": "object",
+  "properties": {
+    "current_page": {
+      "type": "integer"
+    },
+    "total_pages": {
+      "type": "integer"
+    },
+    "current_page_size": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "current_page",
+    "total_pages",
+    "current_page_size",
+    "total"
+  ]
+}

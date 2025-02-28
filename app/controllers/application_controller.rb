@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include Pagination
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
