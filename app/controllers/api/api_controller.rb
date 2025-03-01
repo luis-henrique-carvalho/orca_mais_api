@@ -15,6 +15,30 @@ module Api
       context_params.tap { |new_params| new_params[:id] = params[:id] }
     end
 
+    def authenticate_user!
+      token = request.headers['Authorization']&.split&.last
+
+      if token
+        begin
+          jwt_payload = JWT.decode(token, Rails.application.credentials.devise_jwt_secret_key!).first
+          @current_user = User.find(jwt_payload['sub'])
+        rescue JWT::DecodeError
+          render json: { errors: {
+            base: I18n.t('devise.failure.unauthenticated')
+          } }, status: :unauthorized
+        rescue ActiveRecord::RecordNotFound
+          render json: { errors: { base: I18n.t('devise.failure.not_found_in_database', authentication_keys: 'email') } },
+                 status: :unauthorized
+        end
+      else
+        render json: { errors: {
+          base: I18n.t('devise.failure.invalid', authentication_keys: 'email')
+        } }, status: :unauthorized
+      end
+    end
+
+    attr_reader :current_user
+
     protected
 
     def configure_permitted_parameters

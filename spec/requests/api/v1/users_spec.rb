@@ -28,8 +28,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          debugger
-          expect_error('base', 'invalid', message_key_type: '"devise.failure')
+          expect_error('base', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
         end
 
         run_test!
@@ -39,7 +38,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { 'not_an_id' }
 
         it 'returns correct error message' do
-          expect_error('base', 'active_record.record_not_found')
+          expect_error('base', 'active_record.record_not_found', options: { model: 'User', id: 'not_an_id' })
         end
 
         run_test!
