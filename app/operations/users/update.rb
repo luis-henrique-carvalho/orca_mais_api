@@ -1,31 +1,29 @@
 # frozen_string_literal: true
 
-module Client
-  module Users
-    class Update < ApplicationOperation
-      def call(params)
-        set_params params
+module Users
+  class Update < ApplicationOperation
+    def call(params)
+      set_params params
 
-        find_model
-        restrict_safe_params
-        update_model
+      find_model
+      restrict_safe_params
+      update_model
 
-        success @model
-      end
+      success @model
+    end
 
-      private
+    private
 
-      def find_model
-        @model = User.find(@params[:id])
-      end
+    def find_model
+      @model = User.find(@params[:id])
+    end
 
-      def restrict_safe_params
-        @safe_params = @params.permit(:email, :cpf, :full_name)
-      end
+    def restrict_safe_params
+      @safe_params = @params.permit(:email, :cpf, :full_name)
+    end
 
-      def update_model
-        @model.update!(@safe_params)
-      end
+    def update_model
+      @model.update!(@safe_params)
     end
   end
 end
