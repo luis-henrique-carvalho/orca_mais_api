@@ -98,6 +98,4 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include FactoryBot::Syntax::Methods
   config.extend SwaggerDocHelper, type: :request
-
-  Faker::Config.locale = 'pt-BR'
 end
