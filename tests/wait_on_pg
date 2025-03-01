@@ -1,0 +1,21 @@
+#!/bin/bash
+# Usage: waitforpg
+# expected ENV: RDS_HOST, RDS_PORT, RDS_DB_NAME, RDS_USER, RDS_PASSWORD
+# Description:
+# Waits for postgres to be fully up and running
+
+export PGPASSWORD=$POSTGRES_PASSWORD
+
+probe() {
+  echo "select 'ping';" | psql -h "${POSTGRES_HOST}" -p "${POSTGRES_PORT}" -U "${POSTGRES_USERNAME}" ${POSTGRES_DB} 2>/dev/null >/dev/null
+  return $?
+}
+
+until probe; do
+  echo "⏳ $(date) - waiting for ${POSTGRES_HOST}..."
+  sleep 1
+done
+
+echo "Connection to DB suceeded..."
+
+unset PGPASSWORD

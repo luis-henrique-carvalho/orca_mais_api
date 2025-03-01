@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  donates_time_test_api:
+    build:
+      context: ../
+      dockerfile: Dockerfile.test
+    ports:
+      - "3001:3001"
+    depends_on:
+      - donates_time_db
+    links:
+      - donates_time_db
+    environment:
+      - RAILS_ENV=test
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=donates_time_test_db
+      - POSTGRES_HOST=donates_time_db
+      - POSTGRES_PORT=5432
+      - SECRET_KEY_BASE=THISISAKEY
+      - DEVISE_JWT_SECRET_KEY=THISISAKEY
+    entrypoint: "/usr/bin/test_entrypoint"
+  donates_time_db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=donates_time_test_db
