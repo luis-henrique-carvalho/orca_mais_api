@@ -28,7 +28,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          expect_error('base', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
+          expect_error('auth', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
         end
 
         run_test!
@@ -60,7 +60,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
 
       response 200, 'Successful' do
         let(:user) { user_attributes }
-        let(:user_attributes) {{ full_name: 'Dummy Name', email: 'admin@acme.com', cpf: '12496062095' }}
+        let(:user_attributes) { { full_name: 'Dummy Name', email: 'admin@acme.com', cpf: '12496062095' } }
 
         schema '$ref': '#/components/schemas/v1/users/responses/show'
 
@@ -76,7 +76,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          expect_error('base', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
+          expect_error('auth', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
         end
 
         run_test!

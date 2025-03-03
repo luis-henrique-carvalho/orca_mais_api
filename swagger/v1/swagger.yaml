@@ -4,13 +4,19 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/orders":
+  "/api/v1/users/{id}":
     get:
-      summary: List all orders
+      summary: Show Client User
       tags:
-      - Orders
+      - Client Users
       security:
       - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful
@@ -19,24 +25,81 @@ paths:
               examples:
                 Default:
                   value:
-                    meta:
-                      current_page: 1
-                      total_pages: 1
-                      current_page_size: 10
-                      total: 3
                     data:
-                    - id: 4
-                      customer: João Vieira
-                      kind: Margarida Moreno
-                      price: '49.07'
-                    - id: 5
-                      customer: Sra. João Lobos
-                      kind: Fabiano Casqueira
-                      price: '78.42'
-                    - id: 6
-                      customer: Sra. Nicolas Simões
-                      kind: Sílvia Quarteira
-                      price: '50.41'
+                      id: 23fc2151-c895-455c-ab6f-928fc2ea00dc
+                      cpf: 
+                      email: claretta@kunze-marvin.test
+                      full_name: Ronnie McKenzie IV
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: Invalid email or password.
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find User with 'id'=not_an_id
+                    request_id: 51e63ceb-8c3d-4399-826c-d0292f342c6d
+    put:
+      summary: Update Client User
+      tags:
+      - Client Users
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: 323857ab-768b-4728-90f6-59f77464caf2
+                      cpf: '12496062095'
+                      email: admin@acme.com
+                      full_name: Dummy Name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: Invalid email or password.
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find User with 'id'=not_an_id
+                    request_id: 68c01134-d754-4bb7-88a7-6382676e00c4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/users/requests/update"
 components:
   securitySchemes:
     bearer_auth:
@@ -61,40 +124,61 @@ components:
         - total_pages
         - current_page_size
         - total
-    orders:
-      _common:
-        title: Order
-        type: object
-        properties:
-          id:
-            type: integer
-          customer:
-            type: string
-          price:
-            type: string
-          kind:
-            type: string
-      requests:
-        create:
-          title: Create Order Request
+    v1:
+      users:
+        _common:
+          title: User
           type: object
+          additionalProperties: true
           properties:
-            customer:
+            id:
               type: string
-            price:
-              type: number
-            kind:
+            full_name:
               type: string
-      responses:
-        index:
-          title: Index Order Response
+            email:
+              type: string
+              nullable: true
+        _private:
+          title: User Private
           type: object
+          additionalProperties: true
           properties:
-            data:
-              type: array
-              items:
-                "$ref": "#/components/schemas/orders/_common"
-            meta:
-              "$ref": "#/components/schemas/common/pagination_meta"
+            id:
+              type: string
+            full_name:
+              type: string
+            email:
+              type: string
+              nullable: true
+            cpf:
+              type: string
+              nullable: true
+        requests:
+          update:
+            title: Update User Request
+            type: object
+            properties:
+              user:
+                type: object
+                properties:
+                  full_name:
+                    type: string
+                  cpf:
+                    type: string
+                    nullable: true
+                  email:
+                    type: string
+                    nullable: true
+                required:
+                - user
+        responses:
+          show:
+            title: Show User Response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/users/_private"
+            required:
+            - data
 servers:
 - url: http://{defaultHost}

@@ -4,6 +4,7 @@ module Api
   class ApiController < ActionController::API
     include Pagination
     include ErrorHandling
+    include RackSessionsFix
 
     rescue_from ActiveRecord::RecordNotFound, with: ->(e) { render_errors(e, status: :not_found) }
 
@@ -24,15 +25,15 @@ module Api
           @current_user = User.find(jwt_payload['sub'])
         rescue JWT::DecodeError
           render json: { errors: {
-            base: I18n.t('devise.failure.unauthenticated')
+            auth: I18n.t('devise.failure.unauthenticated')
           } }, status: :unauthorized
         rescue ActiveRecord::RecordNotFound
-          render json: { errors: { base: I18n.t('devise.failure.not_found_in_database', authentication_keys: 'email') } },
+          render json: { errors: { auth: I18n.t('devise.failure.not_found_in_database', authentication_keys: 'email') } },
                  status: :unauthorized
         end
       else
         render json: { errors: {
-          base: I18n.t('devise.failure.invalid', authentication_keys: 'email')
+          auth: I18n.t('devise.failure.invalid', authentication_keys: 'email')
         } }, status: :unauthorized
       end
     end

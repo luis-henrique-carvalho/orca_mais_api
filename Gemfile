@@ -7,6 +7,7 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
 gem 'devise-jwt', '~> 0.12.1'
 gem 'dotenv-rails', groups: %i[development test]
+gem 'image_processing', '>= 1.2'
 gem 'kamal', require: false
 gem 'kaminari', '~> 1.2'
 gem 'pg', '~> 1.1'

@@ -1,0 +1,20 @@
+{
+    "title": "Create User Response",
+    "type": "object",
+    "properties": {
+        "data": {
+            "message": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string"
+            },
+            "user": {
+                "$ref": "#/components/schemas/v1/users/_common"
+            }
+        }
+    },
+    "required": [
+        "data"
+    ]
+}
