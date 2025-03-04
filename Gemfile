@@ -11,8 +11,10 @@ gem 'image_processing', '>= 1.2'
 gem 'kamal', require: false
 gem 'kaminari', '~> 1.2'
 gem 'pg', '~> 1.1'
+gem 'pg_search'
 gem 'puma', '>= 5.0'
 gem 'rack-cors'
+
 gem 'rails', '~> 8.0.1'
 gem 'solid_cable'
 gem 'solid_cache'

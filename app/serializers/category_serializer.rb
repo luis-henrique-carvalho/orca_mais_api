@@ -10,14 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Category < ApplicationRecord
-  include PgSearch::Model
+class CategorySerializer < ApplicationSerializer
+  identifier :id
 
-  has_many :transactions, dependent: :restrict_with_error
-
-  validates :name, presence: true
-
-  pg_search_scope :search, against: :name, using: {
-    tsearch: { prefix: true }
-  }
+  fields :id, :name, :description
 end

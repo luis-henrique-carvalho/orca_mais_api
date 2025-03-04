@@ -8,7 +8,7 @@
 #  amount           :decimal(12, 3)   not null
 #  description      :string
 #  name             :string           not null
-#  transaction_type :integer          default(0), not null
+#  transaction_type :integer          default("income"), not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  category_id      :uuid             not null

@@ -1,0 +1,9 @@
+{
+  "title": "Show Client Product Category Response",
+  "type": "object",
+  "properties": {
+    "data": {
+      "$ref": "#/components/schemas/v1/categories/_common"
+    }
+  }
+}
