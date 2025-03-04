@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: transactions
@@ -30,7 +32,7 @@ FactoryBot.define do
     transaction_type { %i[income expense].sample }
     description { Faker::Lorem.sentence }
 
-    user {association(:user)}
-    category {association(:category)}
+    user { association(:user) }
+    category { association(:category) }
   end
 end

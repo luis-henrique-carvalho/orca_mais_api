@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: transactions
@@ -24,19 +26,19 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Transaction < ApplicationRecord
-    belongs_to :category
-    belongs_to :user
+  belongs_to :category
+  belongs_to :user
 
-    enum :transaction_type, {
-        income: 0,
-        expense: 1
-    }
+  enum :transaction_type, {
+    income: 0,
+    expense: 1
+  }
 
-    validates :name, presence: true, uniqueness: true
-    validates :amount, presence: true
-    validates :transaction_type, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :amount, presence: true
+  validates :transaction_type, presence: true
 
-    scope :by_category, ->(category_id) { where(category_id: category_id) }
-    scope :by_user, ->(user_id) { where(user_id: user_id) }
-    scope :recent, -> { order(created_at: :desc) }
+  scope :by_category, ->(category_id) { where(category_id: category_id) }
+  scope :by_user, ->(user_id) { where(user_id: user_id) }
+  scope :recent, -> { order(created_at: :desc) }
 end
