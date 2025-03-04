@@ -32,5 +32,5 @@ class Category < ApplicationRecord
     tsearch: { prefix: true }
   }
 
-  scope :by_user, ->(user_id) { where(user_id: [nil, user_id]) }
+  scope :by_user_or_global, ->(user_id) { where(user_id: [nil, user_id]) }
 end

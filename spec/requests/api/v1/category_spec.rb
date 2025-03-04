@@ -11,14 +11,16 @@ RSpec.describe 'Api::V1::Categories', type: :request do
       security [bearer_auth: []]
       consumes 'application/json'
       parameter name: :search, in: :query, type: :string
+      parameter name: :'q[user_id_eq]', in: :query, type: :string
 
       let(:search) { nil }
+      let(:'q[user_id_eq]') { nil }
       let(:Authorization) { authenticated_header({}, current_user)['Authorization'] }
 
       generate_response_examples
 
       before do
-        create_list(:category, 3)
+        create_list(:category, 3, :with_user)
       end
 
       response 200, 'Successful' do
@@ -52,6 +54,25 @@ RSpec.describe 'Api::V1::Categories', type: :request do
 
         run_test!
       end
+
+      response 200, 'Filter by user_id or global' do
+        let(:'q[user_id_eq]') { current_user.id }
+
+        before do
+          create(:category, user: current_user)
+        end
+
+        it 'returns the correct data length' do
+          expect(response_body['data'].size).to eq(1)
+        end
+
+        it 'returns a pagination data' do
+          expect(response_body['meta']['total']).to eq(1)
+        end
+
+        run_test!
+      end
+
 
       response 401, 'Unauthorized' do
         let(:Authorization) { nil }

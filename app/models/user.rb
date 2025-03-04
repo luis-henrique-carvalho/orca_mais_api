@@ -37,8 +37,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  has_many :user_categories
-  has_many :categories, through: :user_categories
+  has_many :categories, dependent: :destroy
 
   has_one_attached :avatar
 end
