@@ -4,9 +4,11 @@ class CreateCategories < ActiveRecord::Migration[8.0]
       t.string :name, null: false
       t.string :description
 
+      t.references :user, type: :uuid, foreign_key: true, null: true
+
       t.timestamps
     end
 
-    add_index :categories, :name, unique: true
+    add_index :categories, [:name, :user_id], unique: true
   end
 end
