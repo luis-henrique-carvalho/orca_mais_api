@@ -36,6 +36,8 @@ class UserSerializer < ApplicationSerializer
 
   fields :id, :email, :full_name
 
+  association :avatar, blueprint: AttachmentSerializer
+
   view :private do
     fields :cpf
   end

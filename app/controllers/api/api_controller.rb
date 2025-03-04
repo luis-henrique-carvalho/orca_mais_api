@@ -5,6 +5,7 @@ module Api
     include Pagination
     include ErrorHandling
     include RackSessionsFix
+    include ActiveStorage::SetCurrent
 
     rescue_from ActiveRecord::RecordNotFound, with: ->(e) { render_errors(e, status: :not_found) }
 

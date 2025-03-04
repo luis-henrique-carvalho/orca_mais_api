@@ -19,7 +19,7 @@ module Users
     end
 
     def restrict_safe_params
-      @safe_params = @params.permit(:email, :cpf, :full_name)
+      @safe_params = @params.permit(:email, :cpf, :full_name, :avatar)
     end
 
     def update_model

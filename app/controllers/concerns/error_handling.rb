@@ -34,7 +34,11 @@ module ErrorHandling
     message = if I18n.exists?(error.message)
                 I18n.t(error.message)
               else
-                I18n.t(error_key, default: error.message, model: error.model, id: error.id)
+                if error.respond_to?(:model)
+                  I18n.t(error_key, default: error.message, model: error.model, id: error.id)
+                else
+                  error.message
+                end
               end
 
     { base: [message] }
