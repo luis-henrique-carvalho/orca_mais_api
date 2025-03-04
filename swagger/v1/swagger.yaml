@@ -4,6 +4,68 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/auth/login":
+    post:
+      summary: Login user
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      message: Logged in successfully.
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmNjQ2ODM3NS1iM2NiLTQ1NTYtYmI2NC0wYTViZjZhNGY3NjYiLCJzdWIiOiI3NmQ5YTZhYy0wOTU0LTQ2ZDEtOWRjNy0wMjg4MDAwMGYxNGEiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEwNDU3MDgsImV4cCI6MTc0MTEzMjEwOH0.-PvNBKLCh1rcZ049oCWxgVpjnyl7YxH33xT6exn_izo
+                      user:
+                        id: 76d9a6ac-0954-46d1-9dc7-02880000f14a
+                        email: test@test
+                        full_name: Werner Gislason
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/auth/requests/login"
+  "/api/auth/signup":
+    post:
+      summary: Sign up user
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      message: Signed up successfully.
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNTFlYWM1Yy1kOWQ3LTQyMzEtOWEwOC1lMzhlMjY2NTIwODUiLCJzdWIiOiI0MjQ1NThmZC1lY2Y4LTRlMTMtOWYyMy0zM2QwMGU4ZDExZmUiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEwNDU3MDksImV4cCI6MTc0MTEzMjEwOX0.v4Mcd7EMyXhDBh55b85HMAaTxzvoEETudlBxMN0WkUs
+                      user:
+                        id: 424558fd-ecf8-4e13-9f23-33d00e8d11fe
+                        email: teste@teste
+                        full_name: 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/auth/requests/signup"
+  "/api/auth/logout":
+    delete:
+      summary: Logout User
+      tags:
+      - Auth
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Successful
   "/api/v1/users/{id}":
     get:
       summary: Show Client User
@@ -26,10 +88,10 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 23fc2151-c895-455c-ab6f-928fc2ea00dc
+                      id: 8ef1ea41-e7a4-4a64-ade0-c275842aaa70
                       cpf: 
-                      email: claretta@kunze-marvin.test
-                      full_name: Ronnie McKenzie IV
+                      email: ulysses.metz@heathcote.test
+                      full_name: Lenard Kuhlman DC
         '401':
           description: Unauthorized
           content:
@@ -49,7 +111,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 51e63ceb-8c3d-4399-826c-d0292f342c6d
+                    request_id: aa62199e-3e09-4498-a301-1ae32149a311
     put:
       summary: Update Client User
       tags:
@@ -71,7 +133,7 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 323857ab-768b-4728-90f6-59f77464caf2
+                      id: a9a5fe24-d26a-4ee6-b34d-880c00164fcc
                       cpf: '12496062095'
                       email: admin@acme.com
                       full_name: Dummy Name
@@ -94,7 +156,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 68c01134-d754-4bb7-88a7-6382676e00c4
+                    request_id: c3985604-0988-4f2b-a723-22b5bd45184b
       requestBody:
         content:
           application/json:
@@ -106,6 +168,68 @@ components:
       type: http
       scheme: bearer
   schemas:
+    auth:
+      requests:
+        login:
+          title: User Login Request
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+          required:
+          - user
+        signup:
+          title: Create User Request
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  nullable: true
+                cpf:
+                  type: string
+                  nullable: true
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - user
+      responses:
+        login:
+          title: Create User Response
+          type: object
+          properties:
+            data:
+              message:
+                type: string
+              token:
+                type: string
+              user:
+                "$ref": "#/components/schemas/v1/users/_common"
+          required:
+          - data
+        signup:
+          title: Create User Response
+          type: object
+          properties:
+            data:
+              message:
+                type: string
+              token:
+                type: string
+          required:
+          - data
     common:
       pagination_meta:
         title: Pagination Meta
