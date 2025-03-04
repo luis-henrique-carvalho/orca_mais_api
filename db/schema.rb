@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_04_143328) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_04_154655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -41,12 +41,33 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_143328) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "kind", null: false
     t.decimal "price", precision: 10, scale: 2
     t.string "customer", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "amount", precision: 12, scale: 3, null: false
+    t.integer "transaction_type", default: 0, null: false
+    t.string "description"
+    t.uuid "category_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_transactions_on_category_id"
+    t.index ["name"], name: "index_transactions_on_name", unique: true
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -76,4 +97,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_143328) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "transactions", "categories"
+  add_foreign_key "transactions", "users"
 end
