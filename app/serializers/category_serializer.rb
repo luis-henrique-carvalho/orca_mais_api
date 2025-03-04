@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -22,5 +23,9 @@
 class CategorySerializer < ApplicationSerializer
   identifier :id
 
-  fields :id, :name, :description
+  fields :id, :name, :description, :created_at, :updated_at
+
+  view :private do
+    association :user, blueprint: UserSerializer
+  end
 end

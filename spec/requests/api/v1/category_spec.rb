@@ -79,7 +79,33 @@ RSpec.describe 'Api::V1::Categories', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          expect_error('auth', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
+          debugger
+          expect_error('auth', 'unauthenticated', message_key_type: 'devise.failure')
+        end
+
+        run_test!
+      end
+    end
+
+    post 'Create Category', params: { use_as_request_example: true } do
+      tags 'Categories'
+      security [bearer_auth: []]
+      consumes 'application/json'
+      parameter name: :category, in: :body, schema: { '$ref': '#/components/schemas/v1/categories/requests/create' }
+
+      let(:category) { nil }
+      let(:Authorization) { authenticated_header({}, current_user)['Authorization'] }
+
+      generate_response_examples
+
+      response 200, 'Successful' do
+        let(:category) { {category: categoy_attributes}}
+        let(:categoy_attributes) { {name: 'dummy', description: 'dummy'} }
+
+        schema '$ref': '#/components/schemas/v1/categories/responses/create'
+
+        it 'returns the correct user' do
+          expect(response_body['data']['user']['id']).to eq(current_user.id)
         end
 
         run_test!

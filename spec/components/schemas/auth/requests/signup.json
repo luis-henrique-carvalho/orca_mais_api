@@ -5,23 +5,19 @@
         "user": {
             "type": "object",
             "properties": {
-                "full_name": {
-                    "type": "string",
-                    "nullable": true
-                },
-                "cpf": {
-                    "type": "string",
-                    "nullable": true
-                },
                 "email": {
                     "type": "string"
                 },
                 "password": {
                     "type": "string"
+                },
+                "full_name": {
+                    "type": "string"
                 }
             },
             "required": [
-                "user"
+                "email",
+                "password"
             ]
         }
     }

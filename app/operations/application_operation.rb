@@ -17,12 +17,14 @@ class ApplicationOperation
     end
   end
 
-  def initialize(params)
+  def initialize(current_user, params)
     @params = params
+    @current_user = current_user
   end
 
-  def self.call(params:, options: {})
-    service = new(params)
+  def self.call(params:, current_user: nil, options: {})
+    service = new(current_user, params)
+
     service.call(params)
   rescue ActiveRecord::RecordNotFound => e
     service.failure(e, :not_found)

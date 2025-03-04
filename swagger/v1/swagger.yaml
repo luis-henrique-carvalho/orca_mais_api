@@ -20,11 +20,16 @@ paths:
                   value:
                     data:
                       message: Logged in successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmNjQ2ODM3NS1iM2NiLTQ1NTYtYmI2NC0wYTViZjZhNGY3NjYiLCJzdWIiOiI3NmQ5YTZhYy0wOTU0LTQ2ZDEtOWRjNy0wMjg4MDAwMGYxNGEiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEwNDU3MDgsImV4cCI6MTc0MTEzMjEwOH0.-PvNBKLCh1rcZ049oCWxgVpjnyl7YxH33xT6exn_izo
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5OWQ0MTRjMi00NWY5LTRiYzktYWZlZi04MjFkOWQwMjRkMWMiLCJzdWIiOiJlZWNjZjY1ZS00MTk2LTRhMzUtODUxOS0zYjEyYWY4NzU1NjgiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzA4NTAsImV4cCI6MTc0MTIxNzI1MH0.8s5XZERAPtvcLAlm4atPeanjx2yihCwCKBn8oT6ixug
                       user:
-                        id: 76d9a6ac-0954-46d1-9dc7-02880000f14a
+                        id: eeccf65e-4196-4a35-8519-3b12af875568
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
                         email: test@test
-                        full_name: Werner Gislason
+                        full_name: Susanne Barton
       requestBody:
         content:
           application/json:
@@ -46,9 +51,14 @@ paths:
                   value:
                     data:
                       message: Signed up successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNTFlYWM1Yy1kOWQ3LTQyMzEtOWEwOC1lMzhlMjY2NTIwODUiLCJzdWIiOiI0MjQ1NThmZC1lY2Y4LTRlMTMtOWYyMy0zM2QwMGU4ZDExZmUiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEwNDU3MDksImV4cCI6MTc0MTEzMjEwOX0.v4Mcd7EMyXhDBh55b85HMAaTxzvoEETudlBxMN0WkUs
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0OGEyNzI3MC01NDNmLTRmNjMtOTY1MC05YzM5Y2IzZWZlMzQiLCJzdWIiOiIxOTgyNzNlNC00ZDQxLTRiYTMtODViNi0wZGZmYTI0ZWExZDIiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzA4NTAsImV4cCI6MTc0MTIxNzI1MH0.II8YpMYhp8VT0vKugkHuNKg5Vy6thWXzusfr1zGqI2Q
                       user:
-                        id: 424558fd-ecf8-4e13-9f23-33d00e8d11fe
+                        id: 198273e4-4d41-4ba3-85b6-0dffa24ea1d2
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
                         email: teste@teste
                         full_name: 
       requestBody:
@@ -66,11 +76,90 @@ paths:
       responses:
         '200':
           description: Successful
+  "/api/v1/categories":
+    get:
+      summary: List Categories
+      tags:
+      - Categories
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: q[user_id_eq]
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Filter by user_id or global
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    meta:
+                      current_page: 1
+                      total_pages: 1
+                      current_page_size: 50
+                      total: 1
+                    data:
+                    - id: 139f2914-7c78-4eb1-9a05-2256abbe2b5a
+                      created_at: '2025-03-04T23:27:31.114Z'
+                      description: Deleniti suscipit quo dolores.
+                      name: Leo Kling
+                      updated_at: '2025-03-04T23:27:31.114Z'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+    post:
+      summary: Create Category
+      tags:
+      - Categories
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: aa772ee7-59f9-4806-8e15-e58f811d49a3
+                      created_at: 2025-03-04 23:28:51 UTC
+                      description: dummy
+                      name: dummy
+                      updated_at: 2025-03-04 23:28:51 UTC
+                      user:
+                        id: de5639cb-cd72-4b22-a22b-4a8f246b8cfd
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: ronda_altenwerth@damore.test
+                        full_name: Dr. Gale Hoeger
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/categories/requests/create"
   "/api/v1/users/{id}":
     get:
-      summary: Show Client User
+      summary: Show User
       tags:
-      - Client Users
+      - Users
       security:
       - bearer_auth: []
       parameters:
@@ -88,10 +177,15 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 8ef1ea41-e7a4-4a64-ade0-c275842aaa70
+                      id: bda7d0b3-a160-4a05-8150-479578ca8b39
+                      avatar:
+                        id: 
+                        attachment_id: 
+                        content_type: 
+                        url: 
                       cpf: 
-                      email: ulysses.metz@heathcote.test
-                      full_name: Lenard Kuhlman DC
+                      email: lamar.klein@roob.test
+                      full_name: Ivory Gutmann
         '401':
           description: Unauthorized
           content:
@@ -100,7 +194,7 @@ paths:
                 Default:
                   value:
                     errors:
-                      auth: Invalid email or password.
+                      auth: You need to sign in or sign up before continuing.
         '404':
           description: Not found
           content:
@@ -111,11 +205,11 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: aa62199e-3e09-4498-a301-1ae32149a311
+                    request_id: 510f0f5c-b681-4617-b960-4b8ebfa1a858
     put:
-      summary: Update Client User
+      summary: Update User
       tags:
-      - Client Users
+      - Users
       security:
       - bearer_auth: []
       parameters:
@@ -133,7 +227,12 @@ paths:
                 Default:
                   value:
                     data:
-                      id: a9a5fe24-d26a-4ee6-b34d-880c00164fcc
+                      id: f9a314c7-7d07-49a2-abe2-ea7fc3f33723
+                      avatar:
+                        id: 
+                        attachment_id: 
+                        content_type: 
+                        url: 
                       cpf: '12496062095'
                       email: admin@acme.com
                       full_name: Dummy Name
@@ -145,7 +244,7 @@ paths:
                 Default:
                   value:
                     errors:
-                      auth: Invalid email or password.
+                      auth: You need to sign in or sign up before continuing.
         '404':
           description: Not found
           content:
@@ -156,7 +255,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: c3985604-0988-4f2b-a723-22b5bd45184b
+                    request_id: 19ba4f87-02ae-4cc8-a004-66875aba1d22
       requestBody:
         content:
           application/json:
@@ -193,18 +292,15 @@ components:
             user:
               type: object
               properties:
-                full_name:
-                  type: string
-                  nullable: true
-                cpf:
-                  type: string
-                  nullable: true
                 email:
                   type: string
                 password:
                   type: string
+                full_name:
+                  type: string
               required:
-              - user
+              - email
+              - password
       responses:
         login:
           title: Create User Response
@@ -249,6 +345,59 @@ components:
         - current_page_size
         - total
     v1:
+      categories:
+        _common:
+          title: Category
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            created_at:
+              type: string
+            updated_at:
+              type: string
+        _private:
+          title: Category (private)
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            user:
+              "$ref": "#/components/schemas/v1/users/_common"
+        responses:
+          create:
+            title: Create category response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/categories/_private"
+          index:
+            title: Category index response
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/v1/categories/_common"
+              meta:
+                "$ref": "#/components/schemas/common/pagination_meta"
+            required:
+            - meta
+            - data
       users:
         _common:
           title: User
@@ -305,4 +454,4 @@ components:
             required:
             - data
 servers:
-- url: http://{defaultHost}
+- url: http://localhost:3000

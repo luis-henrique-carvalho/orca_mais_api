@@ -1,5 +1,5 @@
 {
-  "title": "Category",
+  "title": "Category (private)",
   "type": "object",
   "properties": {
     "id": {
@@ -17,6 +17,9 @@
     },
     "updated_at": {
       "type": "string"
+    },
+    "user": {
+      "$ref": "#/components/schemas/v1/users/_common"
     }
   }
 }
