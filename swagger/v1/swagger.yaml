@@ -20,16 +20,16 @@ paths:
                   value:
                     data:
                       message: Logged in successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5OWQ0MTRjMi00NWY5LTRiYzktYWZlZi04MjFkOWQwMjRkMWMiLCJzdWIiOiJlZWNjZjY1ZS00MTk2LTRhMzUtODUxOS0zYjEyYWY4NzU1NjgiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzA4NTAsImV4cCI6MTc0MTIxNzI1MH0.8s5XZERAPtvcLAlm4atPeanjx2yihCwCKBn8oT6ixug
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5N2M2MjBjMC1hMzVlLTQ1YTctYTgyMy04MWQ0ZjU3MTg1MDEiLCJzdWIiOiI5NDEwMDgxNy0wMTM5LTQ1N2UtYmI5OC1iNzc1ODJjOWZlYWYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.513iBIkDjVrSlWHVOv6zPp_FzDN0HYMGBCbNiVwQd4I
                       user:
-                        id: eeccf65e-4196-4a35-8519-3b12af875568
+                        id: 94100817-0139-457e-bb98-b77582c9feaf
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
                         email: test@test
-                        full_name: Susanne Barton
+                        full_name: Angelo Douglas
       requestBody:
         content:
           application/json:
@@ -51,9 +51,9 @@ paths:
                   value:
                     data:
                       message: Signed up successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0OGEyNzI3MC01NDNmLTRmNjMtOTY1MC05YzM5Y2IzZWZlMzQiLCJzdWIiOiIxOTgyNzNlNC00ZDQxLTRiYTMtODViNi0wZGZmYTI0ZWExZDIiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzA4NTAsImV4cCI6MTc0MTIxNzI1MH0.II8YpMYhp8VT0vKugkHuNKg5Vy6thWXzusfr1zGqI2Q
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0NjEyMGIxNi02NTFmLTQ3YmYtYjdiMS0yOGY0NGZhMDEzY2UiLCJzdWIiOiI3OTM0ZGM3Yy1iYTRjLTQzOWEtYTQzZS0wNmVjZDlhMTM3MDgiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.mKxGzYCfhtgG1McgxfSyNyLKBqkR7s7DInuzU3R34jw
                       user:
-                        id: 198273e4-4d41-4ba3-85b6-0dffa24ea1d2
+                        id: 7934dc7c-ba4c-439a-a43e-06ecd9a13708
                         avatar:
                           id: 
                           attachment_id: 
@@ -106,11 +106,11 @@ paths:
                       current_page_size: 50
                       total: 1
                     data:
-                    - id: 139f2914-7c78-4eb1-9a05-2256abbe2b5a
-                      created_at: '2025-03-04T23:27:31.114Z'
-                      description: Deleniti suscipit quo dolores.
-                      name: Leo Kling
-                      updated_at: '2025-03-04T23:27:31.114Z'
+                    - id: 230857fa-f8ed-4eab-8131-28d0a1187063
+                      created_at: '2025-03-05T00:04:11.461Z'
+                      description: Maxime itaque consequatur est.
+                      name: Doyle Toy
+                      updated_at: '2025-03-05T00:04:11.461Z'
         '401':
           description: Unauthorized
           content:
@@ -136,20 +136,20 @@ paths:
                 Default:
                   value:
                     data:
-                      id: aa772ee7-59f9-4806-8e15-e58f811d49a3
-                      created_at: 2025-03-04 23:28:51 UTC
+                      id: e4091216-a422-4962-b55f-5ff2de53a43a
+                      created_at: 2025-03-05 00:04:11 UTC
                       description: dummy
                       name: dummy
-                      updated_at: 2025-03-04 23:28:51 UTC
+                      updated_at: 2025-03-05 00:04:11 UTC
                       user:
-                        id: de5639cb-cd72-4b22-a22b-4a8f246b8cfd
+                        id: 4614051a-478f-4fba-ae4a-70b7c413f9fa
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: ronda_altenwerth@damore.test
-                        full_name: Dr. Gale Hoeger
+                        email: devon_walter@labadie.test
+                        full_name: Janey Wiegand
       requestBody:
         content:
           application/json:
@@ -177,15 +177,15 @@ paths:
                 Default:
                   value:
                     data:
-                      id: bda7d0b3-a160-4a05-8150-479578ca8b39
+                      id: 29b6705e-ab21-4d3b-94a3-ad6991312f45
                       avatar:
                         id: 
                         attachment_id: 
                         content_type: 
                         url: 
                       cpf: 
-                      email: lamar.klein@roob.test
-                      full_name: Ivory Gutmann
+                      email: augustus_yost@sawayn-metz.example
+                      full_name: Prof. Phillis Gulgowski
         '401':
           description: Unauthorized
           content:
@@ -205,7 +205,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 510f0f5c-b681-4617-b960-4b8ebfa1a858
+                    request_id: 6f9a4cf7-6cb7-4226-ade1-f90851a33808
     put:
       summary: Update User
       tags:
@@ -227,7 +227,7 @@ paths:
                 Default:
                   value:
                     data:
-                      id: f9a314c7-7d07-49a2-abe2-ea7fc3f33723
+                      id: 7579f6be-09ad-4867-a4b0-2708137b7bf8
                       avatar:
                         id: 
                         attachment_id: 
@@ -255,7 +255,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 19ba4f87-02ae-4cc8-a004-66875aba1d22
+                    request_id: 60038750-160a-4666-80ec-1ca5eb916f8b
       requestBody:
         content:
           application/json:
@@ -278,6 +278,7 @@ components:
               properties:
                 email:
                   type: string
+                  example: test@test
                 password:
                   type: string
               required:
@@ -294,6 +295,7 @@ components:
               properties:
                 email:
                   type: string
+                  example: test@test
                 password:
                   type: string
                 full_name:
@@ -378,6 +380,23 @@ components:
               type: string
             user:
               "$ref": "#/components/schemas/v1/users/_common"
+        requests:
+          create:
+            title: Create Category Request
+            type: object
+            properties:
+              category:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                required:
+                - name
+            required:
+            - category
         responses:
           create:
             title: Create category response

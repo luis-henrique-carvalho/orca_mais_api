@@ -28,9 +28,6 @@ module Api
           render json: { errors: {
             auth: I18n.t('devise.failure.timeout')
           } }, status: :unauthorized
-        rescue ActiveRecord::RecordNotFound
-          render json: { errors: { auth: I18n.t('devise.failure.not_found_in_database') } },
-                 status: :unauthorized
         end
       else
         render json: { errors: {

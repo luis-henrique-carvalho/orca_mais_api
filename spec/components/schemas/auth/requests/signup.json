@@ -6,7 +6,8 @@
             "type": "object",
             "properties": {
                 "email": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "test@test"
                 },
                 "password": {
                     "type": "string"

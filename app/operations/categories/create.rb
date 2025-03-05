@@ -18,7 +18,7 @@ module Categories
     end
 
     def create_model
-      @model = @current_user.categories.create(@safe_params)
+      @model = @current_user.categories.create!(@safe_params)
     end
   end
 end

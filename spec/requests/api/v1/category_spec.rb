@@ -79,7 +79,6 @@ RSpec.describe 'Api::V1::Categories', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          debugger
           expect_error('auth', 'unauthenticated', message_key_type: 'devise.failure')
         end
 
