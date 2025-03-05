@@ -31,12 +31,15 @@ group :development do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec_rails', '~> 2.30'
   gem 'rubocop-rspec', require: false
+
+  gem 'annotaterb'
+
+  gem 'brakeman', require: false
 end
 
 group :development, :test do
-  gem 'annotaterb'
-  gem 'brakeman', require: false
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.5'
@@ -50,5 +53,3 @@ group :test do
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'simplecov_json_formatter', '~> 0.1.4', require: false
 end
-
-gem 'rubocop-rspec_rails', '~> 2.30'
