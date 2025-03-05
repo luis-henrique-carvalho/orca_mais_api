@@ -22,7 +22,9 @@ module Api
 
       if token
         begin
-          jwt_payload = JWT.decode(token, Rails.application.credentials.devise_jwt_secret_key!).first
+          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV['DEVISE_JWT_SECRET_KEY']
+
+          jwt_payload = JWT.decode(token, secret_key).first
           @current_user = User.find(jwt_payload['sub'])
         rescue JWT::DecodeError
           render json: { errors: {
