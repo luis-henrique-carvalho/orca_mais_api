@@ -25,6 +25,15 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'rswag-api'
 gem 'rswag-ui'
 
+group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
+
 group :development, :test do
   gem 'annotaterb'
   gem 'brakeman', require: false
@@ -33,13 +42,6 @@ group :development, :test do
   gem 'faker', '~> 3.5'
   gem 'rspec-rails', '~> 7.1'
   gem 'rswag-specs'
-
-  gem 'rubocop', require: false
-  gem 'rubocop-capybara', require: false
-  gem 'rubocop-factory_bot', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
 end
 
 group :test do
