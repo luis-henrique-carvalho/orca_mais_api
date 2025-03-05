@@ -73,7 +73,6 @@ RSpec.describe 'Api::V1::Categories', type: :request do
         run_test!
       end
 
-
       response 401, 'Unauthorized' do
         let(:Authorization) { nil }
         let(:id) { create(:user).id }
@@ -98,8 +97,8 @@ RSpec.describe 'Api::V1::Categories', type: :request do
       generate_response_examples
 
       response 200, 'Successful' do
-        let(:category) { {category: categoy_attributes}}
-        let(:categoy_attributes) { {name: 'dummy', description: 'dummy'} }
+        let(:category) { { category: categoy_attributes } }
+        let(:categoy_attributes) { { name: 'dummy', description: 'dummy' } }
 
         schema '$ref': '#/components/schemas/v1/categories/responses/create'
 
