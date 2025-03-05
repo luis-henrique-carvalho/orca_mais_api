@@ -1,0 +1,24 @@
+{
+    "title": "Create Category Request",
+    "type": "object",
+    "properties": {
+        "category": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string",
+                    "nullable": true
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    },
+    "required": [
+        "category"
+    ]
+}

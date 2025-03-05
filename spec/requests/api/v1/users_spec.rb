@@ -6,8 +6,8 @@ RSpec.describe 'Api::V1::Users', type: :request do
   let(:current_user) { create(:user) }
 
   path '/api/v1/users/{id}' do
-    get 'Show Client User', params: { use_as_request_example: true } do
-      tags 'Client Users'
+    get 'Show User', params: { use_as_request_example: true } do
+      tags 'Users'
       security [bearer_auth: []]
       consumes 'application/json'
       parameter name: :id, in: :path, type: :string
@@ -28,7 +28,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          expect_error('auth', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
+          expect_error('auth', 'unauthenticated', message_key_type: 'devise.failure')
         end
 
         run_test!
@@ -45,8 +45,8 @@ RSpec.describe 'Api::V1::Users', type: :request do
       end
     end
 
-    put 'Update Client User', params: { use_as_request_example: true } do
-      tags 'Client Users'
+    put 'Update User', params: { use_as_request_example: true } do
+      tags 'Users'
       security [bearer_auth: []]
       consumes 'application/json'
       parameter name: :id, in: :path, type: :string
@@ -76,7 +76,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
         let(:id) { create(:user).id }
 
         it 'returns correct error message' do
-          expect_error('auth', 'invalid', options: { authentication_keys: 'email' }, message_key_type: 'devise.failure')
+          expect_error('auth', 'unauthenticated', message_key_type: 'devise.failure')
         end
 
         run_test!

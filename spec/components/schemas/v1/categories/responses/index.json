@@ -1,0 +1,19 @@
+{
+  "title": "Category index response",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/v1/categories/_common"
+      }
+    },
+    "meta": {
+      "$ref": "#/components/schemas/common/pagination_meta"
+    }
+  },
+  "required": [
+    "meta",
+    "data"
+  ]
+}

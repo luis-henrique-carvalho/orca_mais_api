@@ -22,19 +22,18 @@ module Api
 
       if token
         begin
-          jwt_payload = JWT.decode(token, Rails.application.credentials.devise_jwt_secret_key!).first
+          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV['DEVISE_JWT_SECRET_KEY']
+
+          jwt_payload = JWT.decode(token, secret_key).first
           @current_user = User.find(jwt_payload['sub'])
         rescue JWT::DecodeError
           render json: { errors: {
-            auth: I18n.t('devise.failure.unauthenticated')
+            auth: I18n.t('devise.failure.timeout')
           } }, status: :unauthorized
-        rescue ActiveRecord::RecordNotFound
-          render json: { errors: { auth: I18n.t('devise.failure.not_found_in_database', authentication_keys: 'email') } },
-                 status: :unauthorized
         end
       else
         render json: { errors: {
-          auth: I18n.t('devise.failure.invalid', authentication_keys: 'email')
+          auth: I18n.t('devise.failure.unauthenticated')
         } }, status: :unauthorized
       end
     end

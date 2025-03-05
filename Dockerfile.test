@@ -7,7 +7,7 @@ EXPOSE 3000
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs postgresql-client chromium-driver
 
 # Set app directory
-ENV APP_HOME /donates-time-api-test
+ENV APP_HOME /orca-mais-api-test
 RUN mkdir -p ${APP_HOME}
 WORKDIR ${APP_HOME}
 

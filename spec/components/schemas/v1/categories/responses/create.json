@@ -1,0 +1,9 @@
+{
+  "title": "Create category response",
+  "type": "object",
+  "properties": {
+    "data": {
+      "$ref": "#/components/schemas/v1/categories/_private"
+    }
+  }
+}
