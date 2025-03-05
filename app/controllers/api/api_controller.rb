@@ -22,7 +22,7 @@ module Api
 
       if token
         begin
-          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV['DEVISE_JWT_SECRET_KEY']
+          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV.fetch('DEVISE_JWT_SECRET_KEY', nil)
 
           jwt_payload = JWT.decode(token, secret_key).first
           @current_user = User.find(jwt_payload['sub'])
