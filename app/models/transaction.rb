@@ -26,6 +26,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Transaction < ApplicationRecord
+  include PgSearch::Model
+  include TransactionCalculations
+
   belongs_to :category
   belongs_to :user
 
@@ -39,6 +42,8 @@ class Transaction < ApplicationRecord
   validates :transaction_type, presence: true
 
   scope :by_category, ->(category_id) { where(category_id: category_id) }
-  scope :by_user, ->(user_id) { where(user_id: user_id) }
-  scope :recent, -> { order(created_at: :desc) }
+
+  pg_search_scope :search, against: :name, using: {
+    tsearch: { prefix: true }
+  }
 end

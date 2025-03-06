@@ -20,16 +20,16 @@ paths:
                   value:
                     data:
                       message: Logged in successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5N2M2MjBjMC1hMzVlLTQ1YTctYTgyMy04MWQ0ZjU3MTg1MDEiLCJzdWIiOiI5NDEwMDgxNy0wMTM5LTQ1N2UtYmI5OC1iNzc1ODJjOWZlYWYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.513iBIkDjVrSlWHVOv6zPp_FzDN0HYMGBCbNiVwQd4I
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ZGY1ZDRkMi1jODNkLTQyNmItYjIxZC1iNTU1NDAyMjMwYTYiLCJzdWIiOiJmYWJmYjhlMS02MTQxLTQ2NmMtOThkYi04NWIyOWFlNjI4YzEiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMTk1NjUsImV4cCI6MTc0MTMwNTk2NX0.9aPjJbzx647Ycak_rAKGDpJs5wlrZpi87HY7vtG05eU
                       user:
-                        id: 94100817-0139-457e-bb98-b77582c9feaf
+                        id: fabfb8e1-6141-466c-98db-85b29ae628c1
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
                         email: test@test
-                        full_name: Angelo Douglas
+                        full_name: Hui Kovacek
       requestBody:
         content:
           application/json:
@@ -51,9 +51,9 @@ paths:
                   value:
                     data:
                       message: Signed up successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0NjEyMGIxNi02NTFmLTQ3YmYtYjdiMS0yOGY0NGZhMDEzY2UiLCJzdWIiOiI3OTM0ZGM3Yy1iYTRjLTQzOWEtYTQzZS0wNmVjZDlhMTM3MDgiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.mKxGzYCfhtgG1McgxfSyNyLKBqkR7s7DInuzU3R34jw
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2N2E5NDkwMi03NDE5LTQ2ODUtYTU1Yy1hNGE1ZjE2YTRjNzciLCJzdWIiOiIyY2U1ZThmMC1jZGIzLTQ4NWQtOTI1Mi1mNGNkZmQzNDA4N2MiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMTk1NjUsImV4cCI6MTc0MTMwNTk2NX0.M_Q2OtipF9aBlF03UthPBwStI4deZ9VLVoPG34v-bQ4
                       user:
-                        id: 7934dc7c-ba4c-439a-a43e-06ecd9a13708
+                        id: 2ce5e8f0-cdb3-485d-9252-f4cdfd34087c
                         avatar:
                           id: 
                           attachment_id: 
@@ -106,11 +106,11 @@ paths:
                       current_page_size: 50
                       total: 1
                     data:
-                    - id: 230857fa-f8ed-4eab-8131-28d0a1187063
-                      created_at: '2025-03-05T00:04:11.461Z'
-                      description: Maxime itaque consequatur est.
-                      name: Doyle Toy
-                      updated_at: '2025-03-05T00:04:11.461Z'
+                    - id: b2d463e5-8a20-42e1-bcf0-2aa3d7dd01b6
+                      created_at: '2025-03-06T00:06:05.699Z'
+                      description: Ipsam impedit rerum quam.
+                      name: George Bradtke
+                      updated_at: '2025-03-06T00:06:05.699Z'
         '401':
           description: Unauthorized
           content:
@@ -136,25 +136,354 @@ paths:
                 Default:
                   value:
                     data:
-                      id: e4091216-a422-4962-b55f-5ff2de53a43a
-                      created_at: 2025-03-05 00:04:11 UTC
+                      id: 8e3914d3-798f-4f9b-a3f3-1acf28b68fdb
+                      created_at: 2025-03-06 00:06:05 UTC
                       description: dummy
                       name: dummy
-                      updated_at: 2025-03-05 00:04:11 UTC
+                      updated_at: 2025-03-06 00:06:05 UTC
                       user:
-                        id: 4614051a-478f-4fba-ae4a-70b7c413f9fa
+                        id: 9bc55cee-0c35-48ef-9a33-9c8adfd8199d
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: devon_walter@labadie.test
-                        full_name: Janey Wiegand
+                        email: lyle@ratke-schoen.test
+                        full_name: Penni Murphy Sr.
       requestBody:
         content:
           application/json:
             schema:
               "$ref": "#/components/schemas/v1/categories/requests/create"
+  "/api/v1/transactions":
+    get:
+      summary: List Transactions
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: q[category_id_eq]
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Don not return transactions from other users
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    meta:
+                      current_page: 1
+                      total_pages: 1
+                      current_page_size: 50
+                      total: 3
+                    data:
+                    - id: 9919b946-1c54-4256-b9e8-25d6a140a6e7
+                      amount: '927.96'
+                      category:
+                        id: 336fb483-0550-49f8-adf6-770b9c112e40
+                        created_at: '2025-03-06T00:06:06.135Z'
+                        description: Et voluptatem deleniti rerum.
+                        name: Chi White DC
+                        updated_at: '2025-03-06T00:06:06.135Z'
+                      created_at: '2025-03-06T00:06:06.137Z'
+                      description: Harum placeat est vel.
+                      name: Synergistic Leather Clock 38
+                      transaction_type: expense
+                      updated_at: '2025-03-06T00:06:06.137Z'
+                    - id: d801e00e-6826-4329-a677-66cc14cbce0e
+                      amount: '103.78'
+                      category:
+                        id: 5c20703a-a625-4bc4-888d-19d6ff617a94
+                        created_at: '2025-03-06T00:06:06.127Z'
+                        description: Ipsa odit ea voluptatibus.
+                        name: Omar Raynor
+                        updated_at: '2025-03-06T00:06:06.127Z'
+                      created_at: '2025-03-06T00:06:06.129Z'
+                      description: Cupiditate dolor aut soluta.
+                      name: Durable Silk Clock 37
+                      transaction_type: income
+                      updated_at: '2025-03-06T00:06:06.129Z'
+                    - id: b56aae3e-48f2-45a7-8a5d-940731ac9745
+                      amount: '335.52'
+                      category:
+                        id: 39dbbcd5-2bc0-4a54-866d-e791e7431f15
+                        created_at: '2025-03-06T00:06:06.122Z'
+                        description: Repellat animi quia temporibus.
+                        name: Josue Stark
+                        updated_at: '2025-03-06T00:06:06.122Z'
+                      created_at: '2025-03-06T00:06:06.124Z'
+                      description: Qui voluptatem quasi veritatis.
+                      name: Synergistic Linen Bottle 36
+                      transaction_type: expense
+                      updated_at: '2025-03-06T00:06:06.124Z'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+    post:
+      summary: Create Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: 0347a23c-9221-44dd-9d10-33a2fdba1419
+                      amount: '100.0'
+                      category:
+                        id: d784916c-b501-4e7a-8c1f-ac5b0f3c9626
+                        created_at: 2025-03-06 00:06:06 UTC
+                        description: Excepturi consequatur expedita voluptatem.
+                        name: Frederica Hand
+                        updated_at: 2025-03-06 00:06:06 UTC
+                      created_at: 2025-03-06 00:06:06 UTC
+                      description: 
+                      name: dummy
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:06:06 UTC
+                      user:
+                        id: 520d2d54-3c5d-41d0-9928-9a0c7d5f2fad
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: lucienne_senger@rath.example
+                        full_name: Hettie Tillman
+        '422':
+          description: Validates errors
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      category:
+                      - must exist
+                      name:
+                      - can't be blank
+                      amount:
+                      - can't be blank
+                    request_id: 876e9ec4-069d-4a15-859c-fbdd68636609
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/transactions/requests/create"
+  "/api/v1/transactions/{id}":
+    get:
+      summary: Show Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: 67108fb0-7ccc-464b-81ef-603cf582cc7e
+                      amount: '179.54'
+                      category:
+                        id: db0e2c5c-2d21-4cb0-981e-39e5e133b54f
+                        created_at: 2025-03-06 00:06:06 UTC
+                        description: Molestiae ut dolor sed.
+                        name: Jeremy Dickinson
+                        updated_at: 2025-03-06 00:06:06 UTC
+                      created_at: 2025-03-06 00:06:06 UTC
+                      description: Ullam quia molestias reprehenderit.
+                      name: Lightweight Leather Bench 47
+                      transaction_type: income
+                      updated_at: 2025-03-06 00:06:06 UTC
+                      user:
+                        id: 1bc30255-4b70-4039-9c50-b8d8d1ef39d5
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: thad@emard-vonrueden.test
+                        full_name: Lester Koepp
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 154793b9-17e2-4c42-9f3d-2773e44b70c2
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+    put:
+      summary: Update Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: e6469cd4-c419-4314-8c58-2178af8e5e49
+                      amount: '100.0'
+                      category:
+                        id: 50398d36-d177-45f5-b106-42a6c2b31a50
+                        created_at: 2025-03-06 00:06:06 UTC
+                        description: Ipsam sapiente fugit molestias.
+                        name: Lino Price
+                        updated_at: 2025-03-06 00:06:06 UTC
+                      created_at: 2025-03-06 00:06:06 UTC
+                      description: Molestiae tenetur quam enim.
+                      name: dummy
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:06:06 UTC
+                      user:
+                        id: b88588f9-dba7-425c-969c-082bf12d875d
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: rolf.ebert@miller-price.test
+                        full_name: Brian Bartell Jr.
+        '422':
+          description: Validates errors
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      name:
+                      - can't be blank
+                    request_id: 54a4d212-878a-450d-85de-e7c728de9569
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 8ed12cb4-550a-4ce7-8635-27bc176aa247
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/transactions/requests/update"
+    delete:
+      summary: Delete Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    message: Transaction deleted successfully
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 93a6d866-8b1b-4a7c-b279-a1054e3d226e
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
   "/api/v1/users/{id}":
     get:
       summary: Show User
@@ -177,15 +506,15 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 29b6705e-ab21-4d3b-94a3-ad6991312f45
+                      id: 67c98e65-2510-480b-85b4-6caff95a6c71
                       avatar:
                         id: 
                         attachment_id: 
                         content_type: 
                         url: 
                       cpf: 
-                      email: augustus_yost@sawayn-metz.example
-                      full_name: Prof. Phillis Gulgowski
+                      email: piper@brekke-kris.test
+                      full_name: King Kovacek
         '401':
           description: Unauthorized
           content:
@@ -205,7 +534,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 6f9a4cf7-6cb7-4226-ade1-f90851a33808
+                    request_id: f0a3a3b2-8c3c-455b-824b-4cd9db357b36
     put:
       summary: Update User
       tags:
@@ -227,7 +556,7 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 7579f6be-09ad-4867-a4b0-2708137b7bf8
+                      id: 43d128ea-721c-4c82-b1df-6e7caf9cf3be
                       avatar:
                         id: 
                         attachment_id: 
@@ -236,6 +565,17 @@ paths:
                       cpf: '12496062095'
                       email: admin@acme.com
                       full_name: Dummy Name
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      email:
+                      - is invalid
+                    request_id: 4977fc7c-61c6-4078-ae59-beaff42d4c0e
         '401':
           description: Unauthorized
           content:
@@ -255,7 +595,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 60038750-160a-4666-80ec-1ca5eb916f8b
+                    request_id: b1db8617-1a43-45af-a95b-75f008293abd
       requestBody:
         content:
           application/json:
@@ -417,6 +757,135 @@ components:
             required:
             - meta
             - data
+      transactions:
+        _common:
+          title: Transaction
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            amount:
+              type: string
+            transaction_type:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            category:
+              "$ref": "#/components/schemas/v1/categories/_common"
+        _private:
+          title: Transaction (private)
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            amount:
+              type: string
+              format: decimal
+            transaction_type:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            category:
+              "$ref": "#/components/schemas/v1/categories/_common"
+            user:
+              "$ref": "#/components/schemas/v1/users/_common"
+        requests:
+          create:
+            title: Create transaction Request
+            type: object
+            properties:
+              transaction:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                  amount:
+                    type: string
+                  transaction_type:
+                    type: integer
+                  category_id:
+                    type: integer
+                required:
+                - name
+                - amount
+                - transaction_type
+                - category_id
+            required:
+            - transaction
+          update:
+            title: Update transaction Request
+            type: object
+            properties:
+              transaction:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                  amount:
+                    type: string
+                  transaction_type:
+                    type: integer
+                  category_id:
+                    type: integer
+                required:
+                - name
+                - amount
+                - transaction_type
+                - category_id
+            required:
+            - transaction
+        responses:
+          create:
+            title: Transaction Create response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
+          index:
+            title: Transaction index response
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/v1/transactions/_common"
+              meta:
+                "$ref": "#/components/schemas/common/pagination_meta"
+            required:
+            - meta
+            - data
+          show:
+            title: Transaction Show response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
+          update:
+            title: Transaction Update response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
       users:
         _common:
           title: User

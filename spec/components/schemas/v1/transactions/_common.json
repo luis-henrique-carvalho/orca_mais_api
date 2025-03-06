@@ -1,0 +1,31 @@
+{
+  "title": "Transaction",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "amount": {
+      "type": "string"
+    },
+    "transaction_type": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/components/schemas/v1/categories/_common"
+    }
+  }
+}

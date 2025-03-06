@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :categories, only: %i[index create]
       resources :users, only: %i[show update]
+      resources :transactions, only: %i[index create show update destroy]
     end
   end
 

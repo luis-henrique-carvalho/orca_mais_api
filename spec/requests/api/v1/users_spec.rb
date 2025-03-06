@@ -71,6 +71,16 @@ RSpec.describe 'Api::V1::Users', type: :request do
         run_test!
       end
 
+      response 422, 'Unprocessable entity' do
+        let(:user) { { user: { email: 'invalid_email' } } }
+
+        it 'returns correct error message' do
+          expect_error('email', 'invalid')
+        end
+
+        run_test!
+      end
+
       response 401, 'Unauthorized' do
         let(:Authorization) { nil }
         let(:id) { create(:user).id }

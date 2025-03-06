@@ -27,7 +27,7 @@
 #
 FactoryBot.define do
   factory :transaction do
-    name { Faker::Commerce.product_name }
+    sequence(:name) { |n| "#{Faker::Commerce.product_name} #{n}" }
     amount { Faker::Number.decimal(l_digits: 3) }
     transaction_type { %i[income expense].sample }
     description { Faker::Lorem.sentence }
