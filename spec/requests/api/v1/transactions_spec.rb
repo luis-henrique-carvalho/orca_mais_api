@@ -12,9 +12,13 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
       consumes 'application/json'
       parameter name: :search, in: :query, type: :string
       parameter name: :'q[category_id_eq]', in: :query, type: :string
+      parameter name: :'q[created_at_gteq]', in: :query, type: :string
+      parameter name: :'q[created_at_lteq]', in: :query, type: :string
 
       let(:search) { nil }
       let(:'q[category_id_eq]') { nil }
+      let(:'q[created_at_lteq]') { nil }
+      let(:'q[created_at_gteq]') { nil }
       let(:Authorization) { authenticated_header({}, current_user)['Authorization'] }
 
       generate_response_examples
@@ -40,6 +44,8 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
       response 200, 'Successful with search' do
         let(:search) { 'dummy' }
 
+        schema '$ref': '#/components/schemas/v1/transactions/responses/index'
+
         before do
           create(:transaction, name: 'dummy', user: current_user)
         end
@@ -55,15 +61,66 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
         run_test!
       end
 
-      response 200, 'Filter by user_id or global' do
-        let(:'q[user_id_eq]') { current_user.id }
+      response 200, 'Filter by category_id_eq' do
+        let(:catagory) { create(:category) }
+        let(:'q[category_id_eq]') { catagory.id }
+
+        schema '$ref': '#/components/schemas/v1/transactions/responses/index'
+
+        before do
+          create(:transaction, category_id: catagory.id, user: current_user)
+        end
 
         it 'returns the correct data length' do
-          expect(response_body['data'].size).to eq(3)
+          expect(response_body['data'].size).to eq(1)
         end
 
         it 'returns a pagination data' do
-          expect(response_body['meta']['total']).to eq(3)
+          expect(response_body['meta']['total']).to eq(1)
+        end
+
+        run_test!
+      end
+
+      response 200, 'Filter by created_at_lteq' do
+        before do
+          travel_to 4.days.ago do
+            create(:transaction, user: current_user)
+          end
+        end
+
+        let(:'q[created_at_lteq]') { 4.days.ago }
+
+        schema '$ref': '#/components/schemas/v1/transactions/responses/index'
+
+        it 'returns the correct data length' do
+          expect(response_body['data'].size).to eq(1)
+        end
+
+        it 'returns a pagination data' do
+          expect(response_body['meta']['total']).to eq(1)
+        end
+
+        run_test!
+      end
+
+      response 200, 'Filter by created_at_gteq' do
+        before do
+          travel_to 2.days.after do
+            create(:transaction, user: current_user)
+          end
+        end
+
+        let(:'q[created_at_gteq]') { 1.day.after }
+
+        schema '$ref': '#/components/schemas/v1/transactions/responses/index'
+
+        it 'returns the correct data length' do
+          expect(response_body['data'].size).to eq(1)
+        end
+
+        it 'returns a pagination data' do
+          expect(response_body['meta']['total']).to eq(1)
         end
 
         run_test!
@@ -249,10 +306,9 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
 
       response 404, 'Not found for other users' do
         let(:id) { create(:transaction).id }
-        let(:body) { { transaction: { name: "teste" } } }
+        let(:body) { { transaction: { name: 'teste' } } }
 
         it 'returns correct error message' do
-
           expect_error('base', 'active_record.record_not_found', options: { model: 'Transaction', id: id })
         end
 
@@ -261,7 +317,7 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
 
       response 404, 'Not found' do
         let(:id) { 'not_an_id' }
-        let(:body) { { transaction: { name: "teste" } } }
+        let(:body) { { transaction: { name: 'teste' } } }
 
         it 'returns correct error message' do
           expect_error('base', 'active_record.record_not_found', options: { model: 'Transaction', id: id })

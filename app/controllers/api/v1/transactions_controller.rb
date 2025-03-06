@@ -50,7 +50,7 @@ module Api
         result = ::Transactions::Destroy.call(params: @transaction)
 
         if result.success?
-           render json: { message: 'Transaction deleted successfully' }, status: :ok
+          render json: { message: 'Transaction deleted successfully' }, status: :ok
         else
           render_errors(result.error, status: result.status)
         end

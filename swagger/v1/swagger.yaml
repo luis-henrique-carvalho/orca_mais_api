@@ -20,16 +20,16 @@ paths:
                   value:
                     data:
                       message: Logged in successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ZGY1ZDRkMi1jODNkLTQyNmItYjIxZC1iNTU1NDAyMjMwYTYiLCJzdWIiOiJmYWJmYjhlMS02MTQxLTQ2NmMtOThkYi04NWIyOWFlNjI4YzEiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMTk1NjUsImV4cCI6MTc0MTMwNTk2NX0.9aPjJbzx647Ycak_rAKGDpJs5wlrZpi87HY7vtG05eU
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NmVjMjJkMC1hN2JiLTQyODEtYjIwYi00YWY2ZmExNWEyZTQiLCJzdWIiOiJkZDc3MTcwOS0xZTkwLTQyZDItOWJhMC0zY2FjMDM1MTY4OWIiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMjAxODAsImV4cCI6MTc0MTMwNjU4MH0.kMdjnw7QuPm-Zu3p-oV0SxgD_WZofDlnwzZ8oQRQoeA
                       user:
-                        id: fabfb8e1-6141-466c-98db-85b29ae628c1
+                        id: dd771709-1e90-42d2-9ba0-3cac0351689b
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
                         email: test@test
-                        full_name: Hui Kovacek
+                        full_name: Loreta Kuhlman
       requestBody:
         content:
           application/json:
@@ -51,9 +51,9 @@ paths:
                   value:
                     data:
                       message: Signed up successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2N2E5NDkwMi03NDE5LTQ2ODUtYTU1Yy1hNGE1ZjE2YTRjNzciLCJzdWIiOiIyY2U1ZThmMC1jZGIzLTQ4NWQtOTI1Mi1mNGNkZmQzNDA4N2MiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMTk1NjUsImV4cCI6MTc0MTMwNTk2NX0.M_Q2OtipF9aBlF03UthPBwStI4deZ9VLVoPG34v-bQ4
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzMmMwYjJmNi02Njk4LTQyMDQtOTYwNy0zNGIyYWM0N2Q2MjMiLCJzdWIiOiJhYjE4OWU0Yi04ZmRhLTQ1NGEtOTMzNi1kNjY4YjA5MjQ0ZWYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMjAxODAsImV4cCI6MTc0MTMwNjU4MH0.X4bUeiVXg7bR8uKCz4T1WhEgNVMy_Vj_1-3SCrYzsnE
                       user:
-                        id: 2ce5e8f0-cdb3-485d-9252-f4cdfd34087c
+                        id: ab189e4b-8fda-454a-9336-d668b09244ef
                         avatar:
                           id: 
                           attachment_id: 
@@ -94,7 +94,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Filter by user_id or global
+          description: Filter by created_at_lteq
           content:
             application/json:
               examples:
@@ -104,13 +104,28 @@ paths:
                       current_page: 1
                       total_pages: 1
                       current_page_size: 50
-                      total: 1
+                      total: 4
                     data:
-                    - id: b2d463e5-8a20-42e1-bcf0-2aa3d7dd01b6
-                      created_at: '2025-03-06T00:06:05.699Z'
-                      description: Ipsam impedit rerum quam.
-                      name: George Bradtke
-                      updated_at: '2025-03-06T00:06:05.699Z'
+                    - id: aee23a4d-fab2-4c3d-b9e7-35001c49ad31
+                      created_at: '2025-03-06T00:16:20.986Z'
+                      description: Fugit ea magnam quas.
+                      name: Belinda Hyatt
+                      updated_at: '2025-03-06T00:16:20.986Z'
+                    - id: 7ee9c6c6-e31d-4667-a37c-d597eec6067b
+                      created_at: '2025-03-06T00:16:20.980Z'
+                      description: Et quod quo voluptatibus.
+                      name: Jonathon Deckow
+                      updated_at: '2025-03-06T00:16:20.980Z'
+                    - id: 27f004a8-7122-49ef-80e7-13b1e4bdd1aa
+                      created_at: '2025-03-06T00:16:20.974Z'
+                      description: Sunt impedit amet qui.
+                      name: The Hon. Leonardo Kuhic
+                      updated_at: '2025-03-06T00:16:20.974Z'
+                    - id: b5cb1c14-b17c-4172-8b05-35cdd289f912
+                      created_at: '2025-03-05T00:16:20.987Z'
+                      description: Optio reprehenderit nesciunt dicta.
+                      name: Humberto Osinski
+                      updated_at: '2025-03-06T00:16:20.988Z'
         '401':
           description: Unauthorized
           content:
@@ -136,20 +151,20 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 8e3914d3-798f-4f9b-a3f3-1acf28b68fdb
-                      created_at: 2025-03-06 00:06:05 UTC
+                      id: ec5f72e4-f70a-4fd7-89f5-bb546f647aff
+                      created_at: 2025-03-06 00:16:21 UTC
                       description: dummy
                       name: dummy
-                      updated_at: 2025-03-06 00:06:05 UTC
+                      updated_at: 2025-03-06 00:16:21 UTC
                       user:
-                        id: 9bc55cee-0c35-48ef-9a33-9c8adfd8199d
+                        id: 891c8d7b-89a9-4d5c-8367-99edc1d37777
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: lyle@ratke-schoen.test
-                        full_name: Penni Murphy Sr.
+                        email: chantel.pouros@kozey-dare.example
+                        full_name: Denae Hartmann
       requestBody:
         content:
           application/json:
@@ -171,6 +186,14 @@ paths:
         in: query
         schema:
           type: string
+      - name: q[created_at_lteq]
+        in: query
+        schema:
+          type: string
+      - name: q[created_at_gteq]
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Don not return transactions from other users
@@ -185,45 +208,45 @@ paths:
                       current_page_size: 50
                       total: 3
                     data:
-                    - id: 9919b946-1c54-4256-b9e8-25d6a140a6e7
-                      amount: '927.96'
+                    - id: '036696dc-cf9c-43ca-9194-2b600b354dfd'
+                      amount: '462.73'
                       category:
-                        id: 336fb483-0550-49f8-adf6-770b9c112e40
-                        created_at: '2025-03-06T00:06:06.135Z'
-                        description: Et voluptatem deleniti rerum.
-                        name: Chi White DC
-                        updated_at: '2025-03-06T00:06:06.135Z'
-                      created_at: '2025-03-06T00:06:06.137Z'
-                      description: Harum placeat est vel.
-                      name: Synergistic Leather Clock 38
+                        id: 858835f5-0514-4ebe-89b2-588141aded67
+                        created_at: '2025-03-06T00:16:21.418Z'
+                        description: Accusamus veniam veritatis quo.
+                        name: Prof. Kelly Harber
+                        updated_at: '2025-03-06T00:16:21.418Z'
+                      created_at: '2025-03-06T00:16:21.420Z'
+                      description: Molestiae omnis velit nam.
+                      name: Rustic Leather Shirt 38
                       transaction_type: expense
-                      updated_at: '2025-03-06T00:06:06.137Z'
-                    - id: d801e00e-6826-4329-a677-66cc14cbce0e
-                      amount: '103.78'
+                      updated_at: '2025-03-06T00:16:21.420Z'
+                    - id: 7688ba32-c23c-49ba-bd06-ea23489a373f
+                      amount: '668.98'
                       category:
-                        id: 5c20703a-a625-4bc4-888d-19d6ff617a94
-                        created_at: '2025-03-06T00:06:06.127Z'
-                        description: Ipsa odit ea voluptatibus.
-                        name: Omar Raynor
-                        updated_at: '2025-03-06T00:06:06.127Z'
-                      created_at: '2025-03-06T00:06:06.129Z'
-                      description: Cupiditate dolor aut soluta.
-                      name: Durable Silk Clock 37
+                        id: 2cfd1263-7b92-49fd-8e92-e498cada92fc
+                        created_at: '2025-03-06T00:16:21.412Z'
+                        description: Delectus in repellendus nam.
+                        name: Latosha Schmeler
+                        updated_at: '2025-03-06T00:16:21.412Z'
+                      created_at: '2025-03-06T00:16:21.415Z'
+                      description: Nemo autem dolores voluptatem.
+                      name: Small Silk Pants 37
+                      transaction_type: expense
+                      updated_at: '2025-03-06T00:16:21.415Z'
+                    - id: 8b4f58ea-7338-43a1-a91f-8844715dd5fb
+                      amount: '104.52'
+                      category:
+                        id: 11d7711e-e954-4faf-960b-b874ca2ab29b
+                        created_at: '2025-03-06T00:16:21.408Z'
+                        description: Aut autem non ullam.
+                        name: Shanika Crooks
+                        updated_at: '2025-03-06T00:16:21.408Z'
+                      created_at: '2025-03-06T00:16:21.410Z'
+                      description: Perferendis ut fugit ut.
+                      name: Fantastic Steel Gloves 36
                       transaction_type: income
-                      updated_at: '2025-03-06T00:06:06.129Z'
-                    - id: b56aae3e-48f2-45a7-8a5d-940731ac9745
-                      amount: '335.52'
-                      category:
-                        id: 39dbbcd5-2bc0-4a54-866d-e791e7431f15
-                        created_at: '2025-03-06T00:06:06.122Z'
-                        description: Repellat animi quia temporibus.
-                        name: Josue Stark
-                        updated_at: '2025-03-06T00:06:06.122Z'
-                      created_at: '2025-03-06T00:06:06.124Z'
-                      description: Qui voluptatem quasi veritatis.
-                      name: Synergistic Linen Bottle 36
-                      transaction_type: expense
-                      updated_at: '2025-03-06T00:06:06.124Z'
+                      updated_at: '2025-03-06T00:16:21.410Z'
         '401':
           description: Unauthorized
           content:
@@ -249,28 +272,28 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 0347a23c-9221-44dd-9d10-33a2fdba1419
+                      id: 8fc0f059-855a-4937-8178-ea5beac391ef
                       amount: '100.0'
                       category:
-                        id: d784916c-b501-4e7a-8c1f-ac5b0f3c9626
-                        created_at: 2025-03-06 00:06:06 UTC
-                        description: Excepturi consequatur expedita voluptatem.
-                        name: Frederica Hand
-                        updated_at: 2025-03-06 00:06:06 UTC
-                      created_at: 2025-03-06 00:06:06 UTC
+                        id: 39c13216-e8b0-4797-8030-0ac139ff3db7
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Quasi exercitationem laudantium voluptate.
+                        name: Ami Hudson
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
                       description: 
                       name: dummy
                       transaction_type: expense
-                      updated_at: 2025-03-06 00:06:06 UTC
+                      updated_at: 2025-03-06 00:16:21 UTC
                       user:
-                        id: 520d2d54-3c5d-41d0-9928-9a0c7d5f2fad
+                        id: 14365ed1-a55c-4831-8efb-85cc47959d24
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: lucienne_senger@rath.example
-                        full_name: Hettie Tillman
+                        email: gabriel@kovacek-oconner.example
+                        full_name: Dr. Ricky Wolff
         '422':
           description: Validates errors
           content:
@@ -285,7 +308,7 @@ paths:
                       - can't be blank
                       amount:
                       - can't be blank
-                    request_id: 876e9ec4-069d-4a15-859c-fbdd68636609
+                    request_id: b87b75fd-0984-495b-93c1-efb8caf2753f
         '401':
           description: Unauthorized
           content:
@@ -322,28 +345,28 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 67108fb0-7ccc-464b-81ef-603cf582cc7e
-                      amount: '179.54'
+                      id: 8b525f35-96c1-44a5-acac-0880e92a5696
+                      amount: '648.62'
                       category:
-                        id: db0e2c5c-2d21-4cb0-981e-39e5e133b54f
-                        created_at: 2025-03-06 00:06:06 UTC
-                        description: Molestiae ut dolor sed.
-                        name: Jeremy Dickinson
-                        updated_at: 2025-03-06 00:06:06 UTC
-                      created_at: 2025-03-06 00:06:06 UTC
-                      description: Ullam quia molestias reprehenderit.
-                      name: Lightweight Leather Bench 47
-                      transaction_type: income
-                      updated_at: 2025-03-06 00:06:06 UTC
+                        id: bf5c79a9-5d58-4cfa-b190-7d51d587dc9e
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Eius accusamus blanditiis doloribus.
+                        name: Rev. Lindsay Graham
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
+                      description: Ipsam ut voluptas consequatur.
+                      name: Awesome Wooden Table 47
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:16:21 UTC
                       user:
-                        id: 1bc30255-4b70-4039-9c50-b8d8d1ef39d5
+                        id: 12716d63-fc6d-41d8-b279-9b46357d530f
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: thad@emard-vonrueden.test
-                        full_name: Lester Koepp
+                        email: candance@moen.test
+                        full_name: Crysta Hand
         '404':
           description: Not found
           content:
@@ -354,7 +377,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find Transaction with 'id'=not_an_id
-                    request_id: 154793b9-17e2-4c42-9f3d-2773e44b70c2
+                    request_id: 338c80b9-74e1-45c4-9967-9d50ae38347e
         '401':
           description: Unauthorized
           content:
@@ -385,28 +408,28 @@ paths:
                 Default:
                   value:
                     data:
-                      id: e6469cd4-c419-4314-8c58-2178af8e5e49
+                      id: e9eb63b3-52af-44b9-aa8e-10c0c0039634
                       amount: '100.0'
                       category:
-                        id: 50398d36-d177-45f5-b106-42a6c2b31a50
-                        created_at: 2025-03-06 00:06:06 UTC
-                        description: Ipsam sapiente fugit molestias.
-                        name: Lino Price
-                        updated_at: 2025-03-06 00:06:06 UTC
-                      created_at: 2025-03-06 00:06:06 UTC
-                      description: Molestiae tenetur quam enim.
+                        id: 50c9aa57-ab69-4e4f-9080-d26d23382a48
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Necessitatibus et possimus dolor.
+                        name: Fr. Bree Hyatt
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
+                      description: Deleniti tempore possimus quo.
                       name: dummy
                       transaction_type: expense
-                      updated_at: 2025-03-06 00:06:06 UTC
+                      updated_at: 2025-03-06 00:16:21 UTC
                       user:
-                        id: b88588f9-dba7-425c-969c-082bf12d875d
+                        id: 29e938e2-5a86-4445-899b-1e1f490d774a
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: rolf.ebert@miller-price.test
-                        full_name: Brian Bartell Jr.
+                        email: cristobal_pfannerstill@pacocha.example
+                        full_name: Prof. Ollie Quigley
         '422':
           description: Validates errors
           content:
@@ -417,7 +440,7 @@ paths:
                     errors:
                       name:
                       - can't be blank
-                    request_id: 54a4d212-878a-450d-85de-e7c728de9569
+                    request_id: 211bc8e0-20bf-4d65-aeb6-984cc7a54265
         '404':
           description: Not found
           content:
@@ -428,7 +451,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find Transaction with 'id'=not_an_id
-                    request_id: 8ed12cb4-550a-4ce7-8635-27bc176aa247
+                    request_id: 0147cd54-8a9e-47d0-ba79-5edfacbb7165
         '401':
           description: Unauthorized
           content:
@@ -474,7 +497,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find Transaction with 'id'=not_an_id
-                    request_id: 93a6d866-8b1b-4a7c-b279-a1054e3d226e
+                    request_id: 8e94a09b-1dd1-4494-8c2c-3712030c545c
         '401':
           description: Unauthorized
           content:
@@ -506,15 +529,15 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 67c98e65-2510-480b-85b4-6caff95a6c71
+                      id: a8cb903a-6015-4b0d-a645-e98a64a35d28
                       avatar:
                         id: 
                         attachment_id: 
                         content_type: 
                         url: 
                       cpf: 
-                      email: piper@brekke-kris.test
-                      full_name: King Kovacek
+                      email: kenyetta@stokes-flatley.test
+                      full_name: Miguel Will
         '401':
           description: Unauthorized
           content:
@@ -534,7 +557,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: f0a3a3b2-8c3c-455b-824b-4cd9db357b36
+                    request_id: e04b0418-3a5e-401f-b786-38f82d4d6820
     put:
       summary: Update User
       tags:
@@ -556,7 +579,7 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 43d128ea-721c-4c82-b1df-6e7caf9cf3be
+                      id: 3e01b02e-c4a3-4aea-8fbc-d9bffc7344b2
                       avatar:
                         id: 
                         attachment_id: 
@@ -575,7 +598,7 @@ paths:
                     errors:
                       email:
                       - is invalid
-                    request_id: 4977fc7c-61c6-4078-ae59-beaff42d4c0e
+                    request_id: fd2603fd-7dcd-4612-aac2-0791232bef44
         '401':
           description: Unauthorized
           content:
@@ -595,7 +618,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: b1db8617-1a43-45af-a95b-75f008293abd
+                    request_id: afc77c89-b4e2-4d5f-bbd6-db18d969512e
       requestBody:
         content:
           application/json:

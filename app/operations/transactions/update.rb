@@ -15,7 +15,6 @@ module Transactions
     private
 
     def set_model
-
       @model = @current_user.transactions.find(@params[:id])
     end
 
