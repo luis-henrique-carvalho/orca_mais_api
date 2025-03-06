@@ -31,8 +31,8 @@ group :development do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec_rails', '~> 2.30'
   gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', '~> 2.30'
 
   gem 'annotaterb'
 

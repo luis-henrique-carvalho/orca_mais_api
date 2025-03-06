@@ -25,7 +25,7 @@ module Api
 
       def respond_to_on_destroy
         if request.headers['Authorization'].present?
-          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV['DEVISE_JWT_SECRET_KEY']
+          secret_key = Rails.application.credentials.devise_jwt_secret_key || ENV.fetch('DEVISE_JWT_SECRET_KEY', nil)
 
           jwt_payload = JWT.decode(request.headers['Authorization'].split.last, secret_key).first
           current_user = User.find(jwt_payload['sub'])

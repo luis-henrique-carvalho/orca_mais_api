@@ -20,16 +20,16 @@ paths:
                   value:
                     data:
                       message: Logged in successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5N2M2MjBjMC1hMzVlLTQ1YTctYTgyMy04MWQ0ZjU3MTg1MDEiLCJzdWIiOiI5NDEwMDgxNy0wMTM5LTQ1N2UtYmI5OC1iNzc1ODJjOWZlYWYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.513iBIkDjVrSlWHVOv6zPp_FzDN0HYMGBCbNiVwQd4I
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NmVjMjJkMC1hN2JiLTQyODEtYjIwYi00YWY2ZmExNWEyZTQiLCJzdWIiOiJkZDc3MTcwOS0xZTkwLTQyZDItOWJhMC0zY2FjMDM1MTY4OWIiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMjAxODAsImV4cCI6MTc0MTMwNjU4MH0.kMdjnw7QuPm-Zu3p-oV0SxgD_WZofDlnwzZ8oQRQoeA
                       user:
-                        id: 94100817-0139-457e-bb98-b77582c9feaf
+                        id: dd771709-1e90-42d2-9ba0-3cac0351689b
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
                         email: test@test
-                        full_name: Angelo Douglas
+                        full_name: Loreta Kuhlman
       requestBody:
         content:
           application/json:
@@ -51,9 +51,9 @@ paths:
                   value:
                     data:
                       message: Signed up successfully.
-                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0NjEyMGIxNi02NTFmLTQ3YmYtYjdiMS0yOGY0NGZhMDEzY2UiLCJzdWIiOiI3OTM0ZGM3Yy1iYTRjLTQzOWEtYTQzZS0wNmVjZDlhMTM3MDgiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDExMzMwNTEsImV4cCI6MTc0MTIxOTQ1MX0.mKxGzYCfhtgG1McgxfSyNyLKBqkR7s7DInuzU3R34jw
+                      token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzMmMwYjJmNi02Njk4LTQyMDQtOTYwNy0zNGIyYWM0N2Q2MjMiLCJzdWIiOiJhYjE4OWU0Yi04ZmRhLTQ1NGEtOTMzNi1kNjY4YjA5MjQ0ZWYiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE3NDEyMjAxODAsImV4cCI6MTc0MTMwNjU4MH0.X4bUeiVXg7bR8uKCz4T1WhEgNVMy_Vj_1-3SCrYzsnE
                       user:
-                        id: 7934dc7c-ba4c-439a-a43e-06ecd9a13708
+                        id: ab189e4b-8fda-454a-9336-d668b09244ef
                         avatar:
                           id: 
                           attachment_id: 
@@ -94,7 +94,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Filter by user_id or global
+          description: Filter by created_at_lteq
           content:
             application/json:
               examples:
@@ -104,13 +104,28 @@ paths:
                       current_page: 1
                       total_pages: 1
                       current_page_size: 50
-                      total: 1
+                      total: 4
                     data:
-                    - id: 230857fa-f8ed-4eab-8131-28d0a1187063
-                      created_at: '2025-03-05T00:04:11.461Z'
-                      description: Maxime itaque consequatur est.
-                      name: Doyle Toy
-                      updated_at: '2025-03-05T00:04:11.461Z'
+                    - id: aee23a4d-fab2-4c3d-b9e7-35001c49ad31
+                      created_at: '2025-03-06T00:16:20.986Z'
+                      description: Fugit ea magnam quas.
+                      name: Belinda Hyatt
+                      updated_at: '2025-03-06T00:16:20.986Z'
+                    - id: 7ee9c6c6-e31d-4667-a37c-d597eec6067b
+                      created_at: '2025-03-06T00:16:20.980Z'
+                      description: Et quod quo voluptatibus.
+                      name: Jonathon Deckow
+                      updated_at: '2025-03-06T00:16:20.980Z'
+                    - id: 27f004a8-7122-49ef-80e7-13b1e4bdd1aa
+                      created_at: '2025-03-06T00:16:20.974Z'
+                      description: Sunt impedit amet qui.
+                      name: The Hon. Leonardo Kuhic
+                      updated_at: '2025-03-06T00:16:20.974Z'
+                    - id: b5cb1c14-b17c-4172-8b05-35cdd289f912
+                      created_at: '2025-03-05T00:16:20.987Z'
+                      description: Optio reprehenderit nesciunt dicta.
+                      name: Humberto Osinski
+                      updated_at: '2025-03-06T00:16:20.988Z'
         '401':
           description: Unauthorized
           content:
@@ -136,25 +151,362 @@ paths:
                 Default:
                   value:
                     data:
-                      id: e4091216-a422-4962-b55f-5ff2de53a43a
-                      created_at: 2025-03-05 00:04:11 UTC
+                      id: ec5f72e4-f70a-4fd7-89f5-bb546f647aff
+                      created_at: 2025-03-06 00:16:21 UTC
                       description: dummy
                       name: dummy
-                      updated_at: 2025-03-05 00:04:11 UTC
+                      updated_at: 2025-03-06 00:16:21 UTC
                       user:
-                        id: 4614051a-478f-4fba-ae4a-70b7c413f9fa
+                        id: 891c8d7b-89a9-4d5c-8367-99edc1d37777
                         avatar:
                           id: 
                           attachment_id: 
                           content_type: 
                           url: 
-                        email: devon_walter@labadie.test
-                        full_name: Janey Wiegand
+                        email: chantel.pouros@kozey-dare.example
+                        full_name: Denae Hartmann
       requestBody:
         content:
           application/json:
             schema:
               "$ref": "#/components/schemas/v1/categories/requests/create"
+  "/api/v1/transactions":
+    get:
+      summary: List Transactions
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: q[category_id_eq]
+        in: query
+        schema:
+          type: string
+      - name: q[created_at_lteq]
+        in: query
+        schema:
+          type: string
+      - name: q[created_at_gteq]
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Don not return transactions from other users
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    meta:
+                      current_page: 1
+                      total_pages: 1
+                      current_page_size: 50
+                      total: 3
+                    data:
+                    - id: '036696dc-cf9c-43ca-9194-2b600b354dfd'
+                      amount: '462.73'
+                      category:
+                        id: 858835f5-0514-4ebe-89b2-588141aded67
+                        created_at: '2025-03-06T00:16:21.418Z'
+                        description: Accusamus veniam veritatis quo.
+                        name: Prof. Kelly Harber
+                        updated_at: '2025-03-06T00:16:21.418Z'
+                      created_at: '2025-03-06T00:16:21.420Z'
+                      description: Molestiae omnis velit nam.
+                      name: Rustic Leather Shirt 38
+                      transaction_type: expense
+                      updated_at: '2025-03-06T00:16:21.420Z'
+                    - id: 7688ba32-c23c-49ba-bd06-ea23489a373f
+                      amount: '668.98'
+                      category:
+                        id: 2cfd1263-7b92-49fd-8e92-e498cada92fc
+                        created_at: '2025-03-06T00:16:21.412Z'
+                        description: Delectus in repellendus nam.
+                        name: Latosha Schmeler
+                        updated_at: '2025-03-06T00:16:21.412Z'
+                      created_at: '2025-03-06T00:16:21.415Z'
+                      description: Nemo autem dolores voluptatem.
+                      name: Small Silk Pants 37
+                      transaction_type: expense
+                      updated_at: '2025-03-06T00:16:21.415Z'
+                    - id: 8b4f58ea-7338-43a1-a91f-8844715dd5fb
+                      amount: '104.52'
+                      category:
+                        id: 11d7711e-e954-4faf-960b-b874ca2ab29b
+                        created_at: '2025-03-06T00:16:21.408Z'
+                        description: Aut autem non ullam.
+                        name: Shanika Crooks
+                        updated_at: '2025-03-06T00:16:21.408Z'
+                      created_at: '2025-03-06T00:16:21.410Z'
+                      description: Perferendis ut fugit ut.
+                      name: Fantastic Steel Gloves 36
+                      transaction_type: income
+                      updated_at: '2025-03-06T00:16:21.410Z'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+    post:
+      summary: Create Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: 8fc0f059-855a-4937-8178-ea5beac391ef
+                      amount: '100.0'
+                      category:
+                        id: 39c13216-e8b0-4797-8030-0ac139ff3db7
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Quasi exercitationem laudantium voluptate.
+                        name: Ami Hudson
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
+                      description: 
+                      name: dummy
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:16:21 UTC
+                      user:
+                        id: 14365ed1-a55c-4831-8efb-85cc47959d24
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: gabriel@kovacek-oconner.example
+                        full_name: Dr. Ricky Wolff
+        '422':
+          description: Validates errors
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      category:
+                      - must exist
+                      name:
+                      - can't be blank
+                      amount:
+                      - can't be blank
+                    request_id: b87b75fd-0984-495b-93c1-efb8caf2753f
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/transactions/requests/create"
+  "/api/v1/transactions/{id}":
+    get:
+      summary: Show Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: 8b525f35-96c1-44a5-acac-0880e92a5696
+                      amount: '648.62'
+                      category:
+                        id: bf5c79a9-5d58-4cfa-b190-7d51d587dc9e
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Eius accusamus blanditiis doloribus.
+                        name: Rev. Lindsay Graham
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
+                      description: Ipsam ut voluptas consequatur.
+                      name: Awesome Wooden Table 47
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:16:21 UTC
+                      user:
+                        id: 12716d63-fc6d-41d8-b279-9b46357d530f
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: candance@moen.test
+                        full_name: Crysta Hand
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 338c80b9-74e1-45c4-9967-9d50ae38347e
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+    put:
+      summary: Update Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    data:
+                      id: e9eb63b3-52af-44b9-aa8e-10c0c0039634
+                      amount: '100.0'
+                      category:
+                        id: 50c9aa57-ab69-4e4f-9080-d26d23382a48
+                        created_at: 2025-03-06 00:16:21 UTC
+                        description: Necessitatibus et possimus dolor.
+                        name: Fr. Bree Hyatt
+                        updated_at: 2025-03-06 00:16:21 UTC
+                      created_at: 2025-03-06 00:16:21 UTC
+                      description: Deleniti tempore possimus quo.
+                      name: dummy
+                      transaction_type: expense
+                      updated_at: 2025-03-06 00:16:21 UTC
+                      user:
+                        id: 29e938e2-5a86-4445-899b-1e1f490d774a
+                        avatar:
+                          id: 
+                          attachment_id: 
+                          content_type: 
+                          url: 
+                        email: cristobal_pfannerstill@pacocha.example
+                        full_name: Prof. Ollie Quigley
+        '422':
+          description: Validates errors
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      name:
+                      - can't be blank
+                    request_id: 211bc8e0-20bf-4d65-aeb6-984cc7a54265
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 0147cd54-8a9e-47d0-ba79-5edfacbb7165
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/v1/transactions/requests/update"
+    delete:
+      summary: Delete Transaction
+      tags:
+      - Transactions
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    message: Transaction deleted successfully
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      base:
+                      - Couldn't find Transaction with 'id'=not_an_id
+                    request_id: 8e94a09b-1dd1-4494-8c2c-3712030c545c
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      auth: You need to sign in or sign up before continuing.
   "/api/v1/users/{id}":
     get:
       summary: Show User
@@ -177,15 +529,15 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 29b6705e-ab21-4d3b-94a3-ad6991312f45
+                      id: a8cb903a-6015-4b0d-a645-e98a64a35d28
                       avatar:
                         id: 
                         attachment_id: 
                         content_type: 
                         url: 
                       cpf: 
-                      email: augustus_yost@sawayn-metz.example
-                      full_name: Prof. Phillis Gulgowski
+                      email: kenyetta@stokes-flatley.test
+                      full_name: Miguel Will
         '401':
           description: Unauthorized
           content:
@@ -205,7 +557,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 6f9a4cf7-6cb7-4226-ade1-f90851a33808
+                    request_id: e04b0418-3a5e-401f-b786-38f82d4d6820
     put:
       summary: Update User
       tags:
@@ -227,7 +579,7 @@ paths:
                 Default:
                   value:
                     data:
-                      id: 7579f6be-09ad-4867-a4b0-2708137b7bf8
+                      id: 3e01b02e-c4a3-4aea-8fbc-d9bffc7344b2
                       avatar:
                         id: 
                         attachment_id: 
@@ -236,6 +588,17 @@ paths:
                       cpf: '12496062095'
                       email: admin@acme.com
                       full_name: Dummy Name
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                Default:
+                  value:
+                    errors:
+                      email:
+                      - is invalid
+                    request_id: fd2603fd-7dcd-4612-aac2-0791232bef44
         '401':
           description: Unauthorized
           content:
@@ -255,7 +618,7 @@ paths:
                     errors:
                       base:
                       - Couldn't find User with 'id'=not_an_id
-                    request_id: 60038750-160a-4666-80ec-1ca5eb916f8b
+                    request_id: afc77c89-b4e2-4d5f-bbd6-db18d969512e
       requestBody:
         content:
           application/json:
@@ -417,6 +780,135 @@ components:
             required:
             - meta
             - data
+      transactions:
+        _common:
+          title: Transaction
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            amount:
+              type: string
+            transaction_type:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            category:
+              "$ref": "#/components/schemas/v1/categories/_common"
+        _private:
+          title: Transaction (private)
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            amount:
+              type: string
+              format: decimal
+            transaction_type:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            category:
+              "$ref": "#/components/schemas/v1/categories/_common"
+            user:
+              "$ref": "#/components/schemas/v1/users/_common"
+        requests:
+          create:
+            title: Create transaction Request
+            type: object
+            properties:
+              transaction:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                  amount:
+                    type: string
+                  transaction_type:
+                    type: integer
+                  category_id:
+                    type: integer
+                required:
+                - name
+                - amount
+                - transaction_type
+                - category_id
+            required:
+            - transaction
+          update:
+            title: Update transaction Request
+            type: object
+            properties:
+              transaction:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                  amount:
+                    type: string
+                  transaction_type:
+                    type: integer
+                  category_id:
+                    type: integer
+                required:
+                - name
+                - amount
+                - transaction_type
+                - category_id
+            required:
+            - transaction
+        responses:
+          create:
+            title: Transaction Create response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
+          index:
+            title: Transaction index response
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/v1/transactions/_common"
+              meta:
+                "$ref": "#/components/schemas/common/pagination_meta"
+            required:
+            - meta
+            - data
+          show:
+            title: Transaction Show response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
+          update:
+            title: Transaction Update response
+            type: object
+            properties:
+              data:
+                "$ref": "#/components/schemas/v1/transactions/_private"
       users:
         _common:
           title: User

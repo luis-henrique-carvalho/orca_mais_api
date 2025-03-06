@@ -1,0 +1,36 @@
+{
+    "title": "Create transaction Request",
+    "type": "object",
+    "properties": {
+        "transaction": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "transaction_type": {
+                    "type": "integer"
+                },
+                "category_id": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "amount",
+                "transaction_type",
+                "category_id"
+            ]
+        }
+    },
+    "required": [
+        "transaction"
+    ]
+}

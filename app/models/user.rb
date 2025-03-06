@@ -39,6 +39,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_many :categories, dependent: :destroy
+  has_many :transactions, dependent: :restrict_with_error
 
   has_one_attached :avatar
 end

@@ -75,7 +75,6 @@ RSpec.describe 'Api::V1::Categories', type: :request do
 
       response 401, 'Unauthorized' do
         let(:Authorization) { nil }
-        let(:id) { create(:user).id }
 
         it 'returns correct error message' do
           expect_error('auth', 'unauthenticated', message_key_type: 'devise.failure')
