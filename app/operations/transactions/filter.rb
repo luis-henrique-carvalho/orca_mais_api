@@ -17,7 +17,7 @@ module Transactions
     end
 
     def define_query
-      @query = @current_user.transactions
+      @query = @current_user.transactions.distinct
     end
 
     def define_includes
@@ -45,7 +45,7 @@ module Transactions
     def search
       return if @params[:search].blank?
 
-      @query = @query.search(@params[:search])
+      @query = @query.search(@params[:search]).with_pg_search_rank
     end
   end
 end
