@@ -19,15 +19,15 @@ module Api
           headers['Authorization'] = @token
 
           render json: {
-            data: {
+
               message: 'Signed up successfully.',
               token: @token,
               user: UserSerializer.render_as_json(resource)
-            }
+
           }
         else
           render json: {
-            data: { message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
+             message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}"
           }, status: :unprocessable_entity
         end
       end

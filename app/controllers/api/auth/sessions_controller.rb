@@ -15,11 +15,11 @@ module Api
         headers['Authorization'] = @token
 
         render json: {
-          data: {
+
             message: 'Logged in successfully.',
             token: @token,
             user: UserSerializer.render_as_json(resource)
-          }
+
         }, status: :ok
       end
 
