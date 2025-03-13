@@ -2,16 +2,11 @@
     "title": "Create User Response",
     "type": "object",
     "properties": {
-        "data": {
-            "message": {
-                "type": "string"
-            },
-            "token": {
-                "type": "string"
-            }
+        "message": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
         }
-    },
-    "required": [
-        "data"
-    ]
+    }
 }

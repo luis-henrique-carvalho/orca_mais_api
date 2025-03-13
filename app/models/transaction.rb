@@ -46,4 +46,16 @@ class Transaction < ApplicationRecord
   pg_search_scope :search, against: :name, using: {
     tsearch: { prefix: true }
   }
+
+  before_save :set_amount_sign
+
+  private
+
+  def set_amount_sign
+    if expense? && amount > 0
+      self.amount = -amount
+    elsif income? && amount < 0
+      self.amount = amount.abs
+    end
+  end
 end
