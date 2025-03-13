@@ -62,7 +62,6 @@ RSpec.describe 'Api::V1::Dashboards', type: :request do
         run_test!
       end
 
-
       response 401, 'Unauthorized' do
         let(:Authorization) { nil }
 
