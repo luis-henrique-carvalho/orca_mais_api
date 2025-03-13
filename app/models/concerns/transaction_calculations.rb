@@ -6,7 +6,7 @@ module TransactionCalculations
   class_methods do
     def total_balance(user_id)
       where(user_id: user_id)
-        .sum('CASE WHEN transaction_type = 0 THEN amount ELSE -amount END')
+        .sum(:amount)
     end
 
     def total_income(user_id)
@@ -17,33 +17,26 @@ module TransactionCalculations
       where(user_id: user_id, transaction_type: :expense).sum(:amount)
     end
 
-    def summary_by_category(user_id)
+    def transactions_by_category(user_id, order = 'DESC')
       where(user_id: user_id)
         .joins(:category)
         .group('categories.name')
         .select(
           'categories.name AS category_name',
           'COUNT(transactions.id) AS transaction_count',
-          'SUM(CASE WHEN transaction_type = 0 THEN amount ELSE -amount END) AS total_amount'
+          'SUM(transactions.amount) AS total_amount'
         )
+        .order("total_amount #{order}")
     end
 
-    def summary_by_category_with_income_expense(user_id)
-      where(user_id: user_id)
-        .joins(:category)
-        .select(
-          'categories.name AS category_name',
-          'COUNT(transactions.id) AS transaction_count',
-          'SUM(CASE WHEN transaction_type = 0 THEN amount ELSE -amount END) AS total_amount',
-          'SUM(CASE WHEN transaction_type = 0 THEN amount ELSE 0 END) AS total_income',
-          'SUM(CASE WHEN transaction_type = 1 THEN amount ELSE 0 END) AS total_expense'
-        )
-    end
-
-    def monthly_totals(user_id)
+    def transactions_by_month(user_id)
       where(user_id: user_id)
         .group("DATE_TRUNC('month', created_at)")
-        .sum('CASE WHEN transaction_type = 0 THEN amount ELSE -amount END')
+        .select(
+          "DATE_TRUNC('month', created_at) AS month",
+          'SUM(amount) AS total_amount'
+        )
+        .order('month')
     end
   end
 end

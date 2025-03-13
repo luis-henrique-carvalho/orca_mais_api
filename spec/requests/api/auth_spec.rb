@@ -29,7 +29,7 @@ RSpec.describe 'User Auth', type: :request do
         end
 
         it 'returns correct user' do |_example|
-          expect(response_body['data']['user']['email']).to eq user.email
+          expect(response_body['user']['email']).to eq user.email
         end
 
         run_test!
@@ -65,7 +65,7 @@ RSpec.describe 'User Auth', type: :request do
         end
 
         it 'returns correct user' do |_example|
-          expect(response_body['data']['user']['email']).to eq user_attributes[:email]
+          expect(response_body['user']['email']).to eq user_attributes[:email]
         end
 
         run_test!

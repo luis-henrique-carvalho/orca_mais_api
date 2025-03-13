@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :categories, only: %i[index create]
       resources :users, only: %i[show update]
       resources :transactions, only: %i[index create show update destroy]
+      resources :dashboards, only: %i[index]
     end
   end
 

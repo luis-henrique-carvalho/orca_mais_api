@@ -1,0 +1,78 @@
+{
+    "title": "Category index response",
+    "type": "object",
+    "properties": {
+        "total_balance": {
+            "type": "string"
+        },
+        "total_income": {
+            "type": "string"
+        },
+        "total_expense": {
+            "type": "string"
+        },
+        "incomes_by_category": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "category_name": {
+                        "type": "string"
+                    },
+                    "transaction_count": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "total_amount": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "expenses_by_category": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "category_name": {
+                        "type": "string"
+                    },
+                    "transaction_count": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "total_amount": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "transactions_by_month": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "month": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "total_amount": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            }
+        }
+    }
+}
