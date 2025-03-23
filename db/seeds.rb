@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-user = User.find_or_create_by!(email: 't@t.com') do |user|
+User.find_or_create_by!(email: 't@t.com') do |user|
   user.password = '123456'
   user.full_name = 'Teste'
 end
@@ -12,13 +12,12 @@ end
 end
 require 'date'
 
-start_date = Date.today << 6 # 2 years ago
-end_date = Date.today
-
-transactions = []
+start_date = Time.zone.today << 60 # 2 years ago
+end_date = Time.zone.today
 
 (start_date..end_date).select { |d| d.day == 1 }.each do |date|
   3.times do
-    FactoryBot.create(:transaction, user: User.last, category: Category.all.sample, created_at: date, amount: rand(1000..10000))
+    FactoryBot.create(:transaction, user: User.last, category: Category.all.sample, created_at: date,
+                                    amount: rand(1000..10_000))
   end
 end
