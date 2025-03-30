@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     registrations: 'api/auth/registrations'
   }
 
+  devise_scope :user do
+    post 'api/auth/refresh-token', to: 'api/auth/sessions#refresh_token'
+  end
+
   namespace :api do
     namespace :v1 do
       resources :categories, only: %i[index create]
