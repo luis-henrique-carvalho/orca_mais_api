@@ -56,7 +56,7 @@ RSpec.describe 'Api::V1::Dashboards', type: :request do
         end
 
         it 'Returns the correct transactions_by_month' do
-          expect(response_body[:transactions_by_month].map { |transaction| transaction[:total_amount].to_f }).to match_array([transactions_income.sum(&:amount).to_f, transactions_expense.sum(&:amount).to_f])
+          expect(response_body[:transactions_by_month].map { |transaction| transaction[:total_amount].to_f }).to contain_exactly(transactions_income.sum(&:amount).to_f, transactions_expense.sum(&:amount).to_f)
         end
 
         run_test!

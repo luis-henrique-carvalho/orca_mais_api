@@ -7,10 +7,11 @@
       "properties": {
         "email": {
           "type": "string",
-          "example": "test@test"
+          "example": "t@t.com"
         },
         "password": {
-          "type": "string"
+          "type": "string",
+          "example": "123456"
         }
       },
       "required": [

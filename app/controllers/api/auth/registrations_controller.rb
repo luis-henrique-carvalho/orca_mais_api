@@ -3,6 +3,8 @@
 module Api
   module Auth
     class RegistrationsController < Devise::RegistrationsController
+      include RackSessionsFix
+
       skip_before_action :verify_authenticity_token
 
       respond_to :json
@@ -18,16 +20,17 @@ module Api
           @token = request.env['warden-jwt_auth.token']
           headers['Authorization'] = @token
 
+          refresh_token = RefreshTokenGenerator.new(resource).refresh_token
+
           render json: {
-
-              message: 'Signed up successfully.',
-              token: @token,
-              user: UserSerializer.render_as_json(resource)
-
+            message: 'Signed up successfully.',
+            token: @token,
+            user: UserSerializer.render_as_json(resource),
+            refresh_token: refresh_token
           }
         else
           render json: {
-             message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}"
+            message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}"
           }, status: :unprocessable_entity
         end
       end

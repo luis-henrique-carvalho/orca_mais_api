@@ -52,9 +52,9 @@ class Transaction < ApplicationRecord
   private
 
   def set_amount_sign
-    if expense? && amount > 0
+    if expense? && amount.positive?
       self.amount = -amount
-    elsif income? && amount < 0
+    elsif income? && amount.negative?
       self.amount = amount.abs
     end
   end
