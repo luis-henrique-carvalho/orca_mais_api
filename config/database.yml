@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("POSTGRES_USER") %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
-  host: <%= ENV.fetch("POSTGRES_HOST") %>
-  port: <%= ENV.fetch("POSTGRES_PORT") %>
+  username: <%= ENV.fetch("SUPABASE_DB_USER") %>
+  password: <%= ENV.fetch("SUPABASE_DB_PASSWORD") %>
+  host: <%= ENV.fetch("SUPABASE_DB_HOST") %>
+  port: <%= ENV.fetch("SUPABASE_DB_PORT") %>
 
 development:
   <<: *default
@@ -18,9 +18,11 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: orca_mais_api_production
-    username: orca_mais_api
-    password: <%= ENV["ORCA_MAIS_API_DATABASE_PASSWORD"] %>
+    database: <%= ENV.fetch("SUPABASE_DB_NAME") %>
+    username: <%= ENV.fetch("SUPABASE_DB_USER") %>
+    password: <%= ENV.fetch("SUPABASE_DB_PASSWORD") %>
+    host: <%= ENV.fetch("SUPABASE_DB_HOST") %>
+    port: <%= ENV.fetch("SUPABASE_DB_PORT") %>
   cache:
     <<: *primary_production
     database: orca_mais_api_production_cache

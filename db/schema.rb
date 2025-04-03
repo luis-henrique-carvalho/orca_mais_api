@@ -11,8 +11,26 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_03_04_181100) do
+  create_schema "auth"
+  create_schema "extensions"
+  create_schema "graphql"
+  create_schema "graphql_public"
+  create_schema "pgbouncer"
+  create_schema "pgsodium"
+  create_schema "pgsodium_masks"
+  create_schema "realtime"
+  create_schema "storage"
+  create_schema "vault"
+
   # These are extensions that must be enabled in order to support this database
+  enable_extension "extensions.pg_stat_statements"
+  enable_extension "extensions.pgcrypto"
+  enable_extension "extensions.pgjwt"
+  enable_extension "extensions.uuid-ossp"
+  enable_extension "graphql.pg_graphql"
   enable_extension "pg_catalog.plpgsql"
+  enable_extension "pgsodium.pgsodium"
+  enable_extension "vault.supabase_vault"
 
   create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +67,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_181100) do
     t.datetime "updated_at", null: false
     t.index ["name", "user_id"], name: "index_categories_on_name_and_user_id", unique: true
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "orca_mais_dv", id: :bigint, default: nil, force: :cascade do |t|
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
